@@ -1,0 +1,84 @@
+@import (reference) "mixins-wln.less";
+body {
+    background-color:#fff;
+}
+.alert-body{
+    padding:0 1em;
+}
+.logo{
+    padding-top:5em;
+}
+.alert-text{
+    padding-top:1em;
+    font-size:30px;
+    line-height:60px;
+    .alert-code{
+        font-size:16px;
+    }
+    i{
+        float: left;
+        margin-right:0.3em;
+        font-size:1.6em;
+    }
+    &.success{
+        i{
+            color:@success;
+        }
+    }
+    &.error{
+        i{
+            color:@red;
+        }
+    }
+
+}
+.alert-code,.lighter{
+    color:@primary;
+}
+.handle-btn{
+    font-size:16px;
+    a{
+        color:#333;
+        margin:0 1em;
+        .iconfont{
+            font-size:1.3em;
+            color:@primary;
+            padding-right:.6em;
+        }
+        &:hover{
+            color:@primary;
+        }
+    }
+}
+.helper-text{
+    padding-top:1em;
+    color:@gray;
+    line-height:2;
+    a{
+        color:@primary;
+        &:hover{
+            text-decoration:underline;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .logo{
+        img{
+            width:160px;
+        }
+    }
+    .alert-text{
+        padding-top:0;
+    }
+    .handle-btn{
+        font-size:14px;
+        padding-top:2em;
+        a{
+            margin:0 .5em;
+            .iconfont{
+                padding-right:.3em;
+            }
+        }
+    }
+}

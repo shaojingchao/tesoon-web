@@ -1,0 +1,24 @@
+@import (reference) "../_mixins-wln.less";
+.radio-beautify{
+    label{
+        position: relative;
+        display: inline-block;
+        cursor:pointer;
+        input[type="radio"],input[type="checkbox"]{
+            position:absolute;
+            top:0;
+            left:0;
+            opacity:0;
+            filter: alpha(opacity=0);
+        }
+        &.checked{
+            color:@primary;
+            cursor:default;
+        }
+        &.disabled{
+            opacity:0.5;
+            filter: alpha(opacity=50);
+            cursor:not-allowed;
+        }
+    }
+}

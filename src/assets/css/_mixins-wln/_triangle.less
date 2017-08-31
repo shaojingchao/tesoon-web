@@ -1,0 +1,328 @@
+//  LESS triangle Mixins 代码，命名为triangle.less
+
+// triangle 系列 Mixins
+// Mixins 名称中的 left ，right ，top ，bottom 描述的是三角形中90度的那个角的指向
+// 凡是带 P 前缀的 Mixins 函数，都是名义私有 Mixins 函数，虽然也能调用，但单独调用它并无实质意义...
+
+// 参数说明:
+// @size【必传】
+// 三角的大小
+
+// @color【必传】
+// 三角的颜色
+
+// @offsetSide【必传】
+// 调整位置的匹配模式
+// 如果 Mixins 名称是以 top 或者 bottom 为结尾，那此参数就调整水平位置，对应取值分别为 left 或者 right
+// 如果 Mixins 名称是以 left 或者 right 为结尾，那此参数就调整垂直位置，对应取值分别为 top 或者 bottom
+
+// @offset
+// 三角的位置，根据 @offsetSide 参数的取值，以对应的 CSS 属性调整三角形的所在位置
+.P-triangle-el-simple(){
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.P-triangle(@size){
+  border: (@size / 2) solid transparent;
+}
+
+.P-triangle-border(left){
+  border-color: transparent @color transparent transparent;
+  border-left-width: 0;
+}
+
+.P-triangle-border(right){
+  border-color: transparent transparent transparent @color;
+  border-right-width: 0;
+}
+
+.P-triangle-border(top){
+  border-color: transparent transparent @color transparent;
+  border-top-width: 0;
+}
+
+.P-triangle-border(bottom){
+  border-color: @color transparent transparent transparent;
+  border-bottom-width: 0;
+}
+
+.P-triangle-border(leftTop){
+  border-top: @size solid @color;
+  border-left: 0 solid transparent;
+}
+
+.P-triangle-border(rightTop){
+  border-top: @size solid @color;
+  border-right: 0 solid transparent;
+}
+
+.P-triangle-border(leftBottom){
+  border-bottom: @size solid @color;
+  border-left: 0 solid transparent;
+}
+
+.P-triangle-border(rightBottom){
+  border-bottom: @size solid @color;
+  border-right: 0 solid transparent;
+}
+
+
+
+.triangle-left(@size, @color, top, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size);
+  .P-triangle-border(left);
+  right: 100%;
+  top: @offset;
+}
+
+.triangle-left(@size, @color, bottom, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size);
+  .P-triangle-border(left);
+  right: 100%;
+  bottom: @offset;
+}
+
+.triangle-inner-left(@size, @color, top, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size);
+  .P-triangle-border(left);
+  right: 0;
+  top: @offset;
+}
+
+.triangle-inner-left(@size, @color, bottom, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size);
+  .P-triangle-border(left);
+  right: 0;
+  bottom: @offset;
+}
+
+.triangle-right(@size, @color, top, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size);
+  .P-triangle-border(right);
+  left: 100%;
+  top: @offset;
+}
+
+.triangle-right(@size, @color, bottom, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size);
+  .P-triangle-border(right);
+  left: 100%;
+  bottom: @offset;
+}
+
+.triangle-inner-right(@size, @color, top, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size);
+  .P-triangle-border(right);
+  left: 0;
+  top: @offset;
+}
+
+.triangle-inner-right(@size, @color, bottom, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size);
+  .P-triangle-border(right);
+  left: 0;
+  bottom: @offset;
+}
+
+.triangle-top(@size, @color, left, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size);
+  .P-triangle-border(top);
+  bottom: 100%;
+  left: @offset;
+}
+
+.triangle-top(@size, @color, right, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size);
+  .P-triangle-border(top);
+  bottom: 100%;
+  right: @offset;
+}
+
+.triangle-inner-top(@size, @color, left, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size);
+  .P-triangle-border(top);
+  bottom: 0;
+  left: @offset;
+}
+
+.triangle-inner-top(@size, @color, right, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size);
+  .P-triangle-border(top);
+  bottom: 0;
+  right: @offset;
+}
+
+.triangle-bottom(@size, @color, left, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size);
+  .P-triangle-border(bottom);
+  top: 100%;
+  left: @offset;
+}
+
+.triangle-bottom(@size, @color, right, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size);
+  .P-triangle-border(bottom);
+  top: 100%;
+  right: @offset;
+}
+
+.triangle-inner-bottom(@size, @color, left, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size);
+  .P-triangle-border(bottom);
+  top: 0;
+  left: @offset;
+}
+
+.triangle-inner-bottom(@size, @color, right, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size);
+  .P-triangle-border(bottom);
+  top: 0;
+  right: @offset;
+}
+
+.triangle-left-top(@size, @color, left, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size * 2);
+  .P-triangle-border(leftTop);
+  top: 100%;
+  left: @offset;
+}
+
+.triangle-left-top(@size, @color, right, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size * 2);
+  .P-triangle-border(leftTop);
+  top: 100%;
+  right: @offset;
+}
+
+.triangle-inner-left-top(@size, @color, left, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size * 2);
+  .P-triangle-border(leftTop);
+  top: 0;
+  left: @offset;
+}
+
+.triangle-inner-left-top(@size, @color, right, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size * 2);
+  .P-triangle-border(leftTop);
+  top: 0;
+  right: @offset;
+}
+
+.triangle-right-top(@size, @color, left, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size * 2);
+  .P-triangle-border(rightTop);
+  top: 100%;
+  left: @offset;
+}
+
+.triangle-right-top(@size, @color, right, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size * 2);
+  .P-triangle-border(rightTop);
+  top: 100%;
+  right: @offset;
+}
+
+.triangle-inner-right-top(@size, @color, left, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size * 2);
+  .P-triangle-border(rightTop);
+  top: 0;
+  left: @offset;
+}
+
+.triangle-inner-right-top(@size, @color, right, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size * 2);
+  .P-triangle-border(rightTop);
+  top: 0;
+  right: @offset;
+}
+
+.triangle-left-bottom(@size, @color, left, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size * 2);
+  .P-triangle-border(leftBottom);
+  bottom: 100%;
+  left: @offset;
+}
+
+.triangle-left-bottom(@size, @color, right, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size * 2);
+  .P-triangle-border(leftBottom);
+  bottom: 100%;
+  right: @offset;
+}
+
+.triangle-inner-left-bottom(@size, @color, left, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size * 2);
+  .P-triangle-border(leftBottom);
+  bottom: 0;
+  left: @offset;
+}
+
+.triangle-inner-left-bottom(@size, @color, right, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size * 2);
+  .P-triangle-border(leftBottom);
+  bottom: 0;
+  right: @offset;
+}
+
+.triangle-right-bottom(@size, @color, left, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size * 2);
+  .P-triangle-border(rightBottom);
+  bottom: 100%;
+  left: @offset;
+}
+
+.triangle-right-bottom(@size, @color, right, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size * 2);
+  .P-triangle-border(rightBottom);
+  bottom: 100%;
+  right: @offset;
+}
+
+.triangle-inner-right-bottom(@size, @color, left, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size * 2);
+  .P-triangle-border(rightBottom);
+  bottom: 0;
+  left: @offset;
+}
+
+.triangle-inner-right-bottom(@size, @color, right, @offset: 0){
+  .P-triangle-el-simple();
+  .P-triangle(@size * 2);
+  .P-triangle-border(rightBottom);
+  bottom: 0;
+  right: @offset;
+}

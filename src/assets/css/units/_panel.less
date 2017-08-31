@@ -1,0 +1,50 @@
+@import (reference) "../_mixins-wln.less";
+
+/* 班级 */
+/*功能面板*/
+.panel {
+  .panel-head {
+    border-bottom: 1px solid @bdcolor;
+    line-height: 34px;
+    font-size: 18px;
+    padding: 1em 0;
+    *zoom: 1;
+    &:after {
+      clear: both;
+      font-size: 0;
+      height: 0;
+      display: block;
+      visibility: hidden;
+      content: " ";
+      line-height: 0
+    }
+  }
+  .panel-name {
+    float: left;
+    font-weight: 400;
+    padding-right: 0.8em;
+    font-size: 1em;
+    .iconfont {
+      float: left;
+      padding-right: 0.2em;
+      color: @primary;
+      font-size: 1.6em;
+    }
+  }
+  .panel-handle {
+    float: right;
+    font-size: 0.8em;
+    .btn {
+      min-width:4em;
+      line-height: 32px;
+      padding: 0 0.7em;
+      margin-left: 5px;
+    }
+    .link {
+      color: @primary;
+    }
+  }
+  .panel-content {
+    //        padding:18px;
+  }
+}

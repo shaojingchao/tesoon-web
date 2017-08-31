@@ -1,0 +1,86 @@
+@import (reference) "../_mixins-wln.less";
+/*最小尺寸点*/
+@media screen and (min-width: 320px) {}
+@media screen and (min-width: 568px) {}
+@media screen and (min-width: 768px) {}
+@media screen and (min-width: 992px) {
+//    @import "_webkit-scrollbar.less";
+}
+@media screen and (min-width: 1200px) {}
+
+/*最大尺寸点*/
+@media screen and (max-width: 1199px) {
+    .content {
+        width:@lg-page-width;
+        padding-left:@lg-wall;
+        padding-right:@lg-wall;
+    }
+}
+
+@media screen and (max-width: 991px) {
+  body{
+    background-color: #fff
+  }
+  .inner-wall{
+    padding-left:0;
+    padding-right:0;
+    padding-bottom:20px;
+  }
+  .panel-wall{
+    margin:10px;
+  }
+  body .content-title{
+    padding-top:10px;
+    padding-bottom:10px;
+    color:@primary;
+    font-size:18px;
+    text-align: center;
+  }
+  .content-mg{
+    margin-top:10px;
+    margin-bottom:20px;
+  }
+    .content {
+        width: @md-page-width;
+        padding-left: @md-wall;
+        padding-right: @md-wall;
+    }
+  .footer-wrap{
+    .footer{
+      font-size:12px;
+      line-height:20px;
+      a{
+        -webkit-background-size: contain;
+        background-size: contain;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+    .content {
+        width: @sm-page-width;
+        padding-left:@sm-wall;
+        padding-right:@sm-wall;
+    }
+}
+
+@media screen and (max-width: 567px) {
+    /* layout */
+    .body-mb{
+        margin-bottom:50px;
+    }
+    .content {
+        width: auto;
+    }
+    .paginator .btn{
+        width:2em;
+        height:2em;
+        line-height:2em;
+        margin:0 0.1em;
+    }
+}
+
+@media screen and (max-width: 414px) {}
+@media screen and (max-width: 375px) {}
+@media screen and (max-width: 320px) {}
