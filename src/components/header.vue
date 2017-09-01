@@ -1,18 +1,16 @@
 <template>
-  <header class="footer">
-      <div class="logo fl">LOGO</div>
-      <ul>
-        <li><a href=''>首页</a></li>
-        <li><a href=''>天星动态</a></li>
-        <li><a href=''>集团业务</a></li>
-        <li><a href=''>了解天星</a></li>
-        <li><a href=''>手机访问</a></li>
-      </ul>
+  <header class="page-header header clearfix">
+      <div class="content">
+        <div class="logo fl"></div>
+        <MyNav/>
+      </div>
   </header>
 </template>
-<style scoped lang="less">
-  @import "../assets/variable.less";
-  header{
-    color:#fff;
+<script>
+  import MyNav from '@/components/myNav.vue'
+  export default {
+    components: {
+      MyNav
+    }
   }
-</style>
+</script>
