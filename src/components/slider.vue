@@ -5,6 +5,7 @@
     <div class="hd">
       <div class="nav-bar">
         <span
+          v-if="bannerPics && bannerPics.length>1"
           v-for="(item,index) in bannerPics.length"
           :class="{on:(index === currentIndex)}"
           @click="showThisBanner(index)"
@@ -27,25 +28,26 @@
 </template>
 
 <style lang="less" scoped>
+  @height:929px;
   .banner-wrap{
-    height:600px;
+    height:@height;
     background:#4889e5;
   }
   .wln-slider{
     min-width:1200px;
     position:relative;
-    height:600px;
+    height:@height;
     overflow:hidden;
     .bd{
       position:relative;
       z-index:0;
       ul{
         position: relative;
-        height: 600px;
+        height: @height;
         width:100%!important;
         li{
           width:100%!important;
-          height:600px;
+          height:@height;
           position:absolute;
           left: 0;
           top: 0;

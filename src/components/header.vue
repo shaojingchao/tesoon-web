@@ -1,7 +1,7 @@
 <template>
   <header class="page-header header clearfix">
       <div class="content">
-        <div class="logo fl"></div>
+        <router-link class="logo fl cur-poi" title="首页" tag="div" to="/"></router-link>
         <MyNav/>
       </div>
   </header>

@@ -2,11 +2,10 @@
   <div class="index-header">
     <header class="header clearfix">
       <div class="content">
-        <div class="logo fl">LOGO</div>
+        <div class="logo fl"></div>
         <MyNav/>
       </div>
     </header>
-
     <Slider class="slider-wrap" :bannerPics="bannerPics" :time="4"/>
   </div>
 
@@ -18,8 +17,7 @@
     data () {
       return {
         bannerPics: [
-          require('../assets/img/banner/banner1.jpg'),
-          require('../assets/img/banner/banner2.jpg')
+          require('../assets/img/banner/idx_banner_2.png')
         ]
       }
     },

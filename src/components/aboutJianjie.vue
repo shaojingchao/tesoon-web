@@ -1,0 +1,73 @@
+<template>
+  <div>
+    <p><img src="../assets/img/about/u244.jpg"></p>
+
+    <div id="u247" class="text">
+      <p><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">&nbsp; &nbsp; &nbsp;&nbsp; </span><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">天星教育是一家致力于教育图书出版及提供教育信息服务的文化教育机构，自1998年成立以来，已发展成为河南民营书业的旗舰品牌。公司坐落于历史文化源远流长的中原大地，秉承着中原儿女自强不息、上下求索的民族精神，积极投身于文化产业发展的大潮中，为了民族教育的振兴和发展，贡献着自己的智慧和热忱。</span>
+      </p>
+      <p><span style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">&nbsp;</span></p>
+      <p><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#333333;">&nbsp; &nbsp; &nbsp;&nbsp; </span><span
+        style="font-family:'微软雅黑 Bold', '微软雅黑';font-weight:700;color:#333333;">一、 人力资源</span></p>
+      <p><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">&nbsp; &nbsp; &nbsp;&nbsp; </span><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;"></span></p>
+      <p><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">&nbsp; &nbsp; &nbsp;&nbsp; </span><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">天星教育设河南天星教育传媒股份有限公司（注册资金5000万元）、河南华腾书业有限公司（注册资金500万元）、河南华汇书业有限公司、郑州环宇书社等机构，拥有员工600余人，其中本科学历400余名，硕士研究生100余名，主要来自武汉大学、南开大学、四川大学、吉林大学、郑州大学、华东师范大学、东北师范大学等国家“985”或“211工程”重点院校。</span>
+      </p>
+      <p><span style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">&nbsp;</span></p>
+      <p><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">&nbsp; &nbsp; &nbsp;&nbsp; </span><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">截至目前，公司已经有34名员工取得了国家初级出版专业资格证书，69名员工取得了国家中级出版专业资格证书，24名员工取得了中级出版发行员资格证书，另有全国各地专家编委4000余名，从而在源头上保证了天星教育的研发能力和图书品质。</span>
+      </p>
+      <p><span style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">&nbsp;</span></p>
+      <p><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#333333;">&nbsp; &nbsp; &nbsp;&nbsp; </span><span
+        style="font-family:'微软雅黑 Bold', '微软雅黑';font-weight:700;color:#333333;">二、 研发实力</span></p>
+      <p><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">&nbsp; &nbsp; &nbsp;&nbsp; </span><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;"></span></p>
+      <p><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">&nbsp; &nbsp; &nbsp;&nbsp; </span><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">目前天星教育和新疆青少年出版社、延边教育出版社、汕头大学出版社、华乐出版社建立了出版合作伙伴关系，年策划图书单品2000余种，具备了完善的图书策划、组稿、审稿、质检、网络宣传、信息服务能力。</span>
+      </p>
+      <p><span style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">&nbsp;</span></p>
+      <p><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">&nbsp; &nbsp; &nbsp;&nbsp; </span><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">目前，天星教育围绕教育出版、综合出版、数字化全媒体出版三大发展战略，不断推出市场认可的优质产品。</span>
+      </p>
+      <p><span style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">&nbsp;</span></p>
+      <p><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">&nbsp; &nbsp; &nbsp;&nbsp; </span><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">教育出版。天星教育以独到、敏锐的市场眼光，独辟蹊径地首创MOOK教辅理念，出版《金考卷》《试题调研》等MOOK系列图书，同时公司开发了《讲义》系列，实现了公司产品从侧翼市场到核心市场的战略过渡。三大品牌成三足鼎立之势，奠定了天星教育的品牌根基。</span>
+      </p>
+      <p><span style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">&nbsp;</span></p>
+      <p><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">&nbsp; &nbsp; &nbsp;&nbsp; </span><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">综合出版。天星教育打造的《疯狂阅读》系列期刊群已成为青少年阅读拓展领军品牌，《疯狂阅读》《疯狂作文》《英语时空》《青春风》系列杂志，以及各类青少年综合拓展读物各展风采、风靡全国各大初高中校园。 2014年，天星教育大力开拓少年儿童阅读市场，引进国外优秀儿童绘本和儿童文学作品，并积极开发本土优秀作品，力争为中国少年儿童提供有益、有趣、独特的阅读体验。</span>
+      </p>
+      <p><span style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">&nbsp;</span></p>
+      <p><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">&nbsp; &nbsp; &nbsp;&nbsp; </span><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">数字出版。数字出版事业以天星教育网为基础，依托公司强大的品牌资源和雄厚的内容资源，先后孵化出“e学堂”“微作文”“微阅读”“未来脑智能教学云平台”等优秀的数字学习项目。目前天星教育网络平台正迅速成长为国内最完善的中学师生在线学习交流平台。</span>
+      </p>
+      <p><span style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">&nbsp;</span></p>
+      <p><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#333333;">&nbsp; &nbsp; &nbsp;&nbsp; </span><span
+        style="font-family:'微软雅黑 Bold', '微软雅黑';font-weight:700;color:#333333;">三、营销实力</span></p>
+      <p><span style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">&nbsp;</span></p>
+      <p><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">&nbsp; &nbsp; &nbsp;&nbsp; </span><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">天星产品的销售覆盖了全国 29个省市，目前已经建立起完善的销售、客服、物流、信息反馈服务体系，全国共有一级经销商60余名，已经覆盖了全国各地中学以及千万家书店，销售码洋居行业前列。同时通过建立健全读者服务体系，为所有读者提供全程全方位的学习支持，给予科学高效的学习方法，提供更多的个性化服务，帮助读者解决各种问题，与读者共同分享学习的乐趣。</span>
+      </p>
+      <p><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">&nbsp; &nbsp; &nbsp;&nbsp; </span><span
+        style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#666666;">天星教育利用自身的品牌优势，以人为本，以市场为导向，以管理为基础，以诚信为宗旨，以质量为保证，依托优质的客户服务，不断提高员工素质，开拓进取，稳健发展。在新的发展道路上，天星怀着对中国教育事业的无限热爱，秉承着对人民群众的无限赤诚，为自己树立如下使命：为优质教育资源的普及不懈努力，为人民群众综合素质的提高不懈奋斗。</span>
+      </p>
+    </div>
+
+  </div>
+</template>

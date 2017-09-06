@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
+    "axios": "^0.16.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^7.1.1",
@@ -60,6 +61,7 @@
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
     "mocha": "^3.2.0",
+    "mockjs": "^1.0.1-beta3",
     "opn": "^5.1.0",
     "optimize-css-assets-webpack-plugin": "^2.0.0",
     "ora": "^1.2.0",
