@@ -1,5 +1,6 @@
 <template>
-  <div class="g-shade">
+  <div>
+    <div class="g-shade"></div>
     <div class="loading"></div>
   </div>
 </template>
@@ -7,13 +8,15 @@
   .g-shade{
     position: fixed;
     z-index: 1000;
+    height:100%;
+    width:100%;
     top:0;
     left:0;
     right:0;
     bottom:0;
     background-color: rgba(0,0,0,.3);
     .loading{
-      position: absolute;
+      position: fixed;
       top:50%;
       left:50%;
       width:100px;

@@ -3,7 +3,7 @@
 @import "units/_reset.less";
 @import "units/_layout.less";
 //@import "units/_loading.less";
-//@import "units/_btn.less";
+@import "units/_btn.less";
 //@import "units/_form.less";
 //@import "units/_panel.less";
 //@import "units/_tab.less";
@@ -24,22 +24,30 @@
   padding:20px;
   color:#999;
   font-size:14px;
-  border-bottom:1px solid #ddd;
+  //border-bottom:1px solid #ddd;
 }
 .page-nav-tab{
+  border-bottom:1px solid #eee;
   a{
     display: inline-block;
-    width:160px;
-    padding:15px 0;
+    height:70px;
+    line-height:70px;
+    margin-right:20px;
+    box-sizing:border-box;
+    padding:0 10px;
     text-align: center;
-    font-size:18px;
+    font-size:22px;
     &.on{
       color: @primary;
     }
+    &:hover{
+      color:@primary;
+    }
+    transition: all 0.3s;
   }
   .router-link-exact-active{
     color: @primary;
-    background-color: #eee;
+    border-bottom:4px solid @primary;
   }
 }
 

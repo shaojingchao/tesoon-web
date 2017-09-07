@@ -1,19 +1,19 @@
 <template>
-  <div class="un-select pagination-wrap pt30 pb30">
+  <div class="un-select pagination-wrap">
     <ul class="pagination">
-      <li :class="{disabled:currentPage === 1}" @click="prevPage()"><a class="side-btn" href="javascript:">上一页</a></li>
-      <li :class="{disabled:currentPage === 1}" @click="goToPage(1)"><a href="javascript:">首页</a></li>
+      <li :class="{disabled:currentPage === 1}" @click="goToPage(1)"><a title="首页" class="side-btn" href="javascript:"><<</a></li>
+      <li :class="{disabled:currentPage === 1}" @click="prevPage()"><a title="上一页" class="side-btn" href="javascript:"><</a></li>
       <li v-for="item in pages"
           :class="{active:currentPage === item}"
           @click="goToPage(item)"><a href="javascript:">{{item}}</a></li>
-      <li :class="{disabled:currentPage === totalPage}" @click="goToPage(totalPage)"><a href="javascript:">尾页</a></li>
-      <li :class="{disabled:currentPage === totalPage}" @click="nextPage()"><a class="side-btn" href="javascript:">下一页</a></li>
+      <li :class="{disabled:currentPage === totalPage}" @click="nextPage()"><a title="下一页" class="side-btn" href="javascript:">></a></li>
+      <li :class="{disabled:currentPage === totalPage}" @click="goToPage(totalPage)"><a title="尾页" class="side-btn" href="javascript:">>></a></li>
     </ul>
   </div>
 </template>
 <style lang="less">
   .pagination-wrap{
-    text-align: center;
+    /*text-align: right;*/
   }
   .pagination {
     position: relative;
@@ -22,29 +22,35 @@
 
   .pagination li {
     display: inline-block;
-    margin: 0 5px;
+    text-align: center;
   }
 
   .pagination li a {
-    width:3em;
-    height:3em;
-    line-height:3em;
+    font-size:12px;
+    width:26px;
+    height:26px;
+    line-height:26px;
+    border-radius:2px;
     /*padding: .5rem 1rem;*/
     display: inline-block;
-    border: 1px solid #ddd;
+    border: 1px solid #fff;
     background: #fff;
-    color: #0E90D2;
+    color: #333;
     &.side-btn{
-      width:6em;
+      /*width:4em;*/
+      font-size:1.2em;
+      line-height:26px;
+      font-family:consolas, sans-serif;
     }
   }
 
   .pagination li a:hover {
-    background: #eee;
+    background-color: #eee;
+    border-color:#eee;
   }
 
   .pagination li.active a {
-    background: #0E90D2;
+    background-color: #0E90D2;
     border-color:#0E90D2;
     color: #fff;
   }

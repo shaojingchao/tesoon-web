@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/components/index.vue'
 import Dynamic from '@/components/dynamic.vue'
+import DynamicDetail from '@/components/dynamicDetail.vue'
 import Service from '@/components/service.vue'
 import ServiceTab1 from '@/components/serviceTab1.vue'
 import ServiceTab2 from '@/components/serviceTab2.vue'
@@ -13,10 +14,11 @@ import aboutWenhua from '@/components/aboutWenhua.vue'
 import aboutZizhi from '@/components/aboutZizhi.vue'
 import aboutLianxi from '@/components/aboutLianxi.vue'
 import aboutGongzuo from '@/components/aboutGongzuo.vue'
+import ErrorPage from '@/components/404.vue'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   routes: [
     {
@@ -26,9 +28,21 @@ export default new Router({
     },
     {
       path: '/dynamic',
-      name: 'Dynamic',
-      component: Dynamic
+      redirect: '/dynamic/all'
     },
+    {
+      path: '/dynamic/:cate',
+      name: 'Dynamic',
+      component: Dynamic,
+      children: [
+        {
+          path: ':id',
+          name: 'newsDetail',
+          component: DynamicDetail
+        }
+      ]
+    },
+
     {
       path: '/service',
       name: 'Service',
@@ -80,7 +94,16 @@ export default new Router({
           component: aboutGongzuo
         }
       ]
+    },
+    {
+      path: '*',
+      name: 'error',
+      component: ErrorPage
     }
-
   ]
 })
+router.beforeEach((to, from, next) => {
+  console.log(to)
+  next()
+})
+export default router

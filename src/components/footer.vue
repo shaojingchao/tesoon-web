@@ -5,29 +5,29 @@
         <div class="fn-item">
           <div class="item-tit">天星动态</div>
           <ul>
-            <li><a href="">全部新闻</a></li>
-            <li><a href="">集团新闻</a></li>
-            <li><a href="">行业新闻</a></li>
-            <li><a href="">员工新闻</a></li>
+            <li><a href="/dynamic/all">全部新闻</a></li>
+            <li><a href="/dynamic/jt">集团新闻</a></li>
+            <li><a href="/dynamic/hy">行业新闻</a></li>
+            <li><a href="/dynamic/yg">员工新闻</a></li>
           </ul>
         </div>
         <div class="fn-item">
           <div class="item-tit">集团业务</div>
           <ul>
-            <li><a href="">教育出版</a></li>
-            <li><a href="">综合出版</a></li>
-            <li><a href="">数字出版</a></li>
+            <li><a href="/service/jiaoyu">教育出版</a></li>
+            <li><a href="/service/zonghe">综合出版</a></li>
+            <li><a href="/service/shuzi">数字出版</a></li>
           </ul>
         </div>
         <div class="fn-item">
           <div class="item-tit">了解天星</div>
           <ul>
-            <li><a href="">集团简介</a></li>
-            <li><a href="">发展历程</a></li>
-            <li><a href="">天星文化</a></li>
-            <li><a href="">荣誉资质</a></li>
-            <li><a href="">联系我们</a></li>
-            <li><a href="">加入天星</a></li>
+            <li><a href="/about/jianjie">集团简介</a></li>
+            <li><a href="/about/licheng">发展历程</a></li>
+            <li><a href="/about/wenhua">天星文化</a></li>
+            <li><a href="/about/zizhi">荣誉资质</a></li>
+            <li><a href="/about/lianxi">联系我们</a></li>
+            <li><a href="/about/gongzuo">加入天星</a></li>
           </ul>
         </div>
         <div class="fn-item">
