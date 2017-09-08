@@ -5,29 +5,28 @@
         <div class="fn-item">
           <div class="item-tit">天星动态</div>
           <ul>
-            <li><a href="/dynamic/all">全部新闻</a></li>
-            <li><a href="/dynamic/jt">集团新闻</a></li>
-            <li><a href="/dynamic/hy">行业新闻</a></li>
-            <li><a href="/dynamic/yg">员工新闻</a></li>
+            <li><router-link to="/dynamic/all">全部新闻</router-link></li>
+            <li><router-link to="/dynamic/jt">集团新闻</router-link></li>
+            <li><router-link to="/dynamic/hy">行业新闻</router-link></li>
+            <li><router-link to="/dynamic/yg">员工新闻</router-link></li>
           </ul>
         </div>
         <div class="fn-item">
           <div class="item-tit">集团业务</div>
           <ul>
-            <li><a href="/service/jiaoyu">教育出版</a></li>
-            <li><a href="/service/zonghe">综合出版</a></li>
-            <li><a href="/service/shuzi">数字出版</a></li>
+            <li><router-link to="/service/jiaoyu">教育出版</router-link></li>
+            <li><router-link to="/service/zonghe">综合出版</router-link></li>
+            <li><router-link to="/service/shuzi">数字出版</router-link></li>
           </ul>
         </div>
         <div class="fn-item">
           <div class="item-tit">了解天星</div>
           <ul>
-            <li><a href="/about/jianjie">集团简介</a></li>
-            <li><a href="/about/licheng">发展历程</a></li>
-            <li><a href="/about/wenhua">天星文化</a></li>
-            <li><a href="/about/zizhi">荣誉资质</a></li>
-            <li><a href="/about/lianxi">联系我们</a></li>
-            <li><a href="/about/gongzuo">加入天星</a></li>
+            <li><router-link to="/about/jianjie">集团简介</router-link></li>
+            <li><router-link to="/about/licheng">发展历程</router-link></li>
+            <li><router-link to="/about/wenhua">天星文化</router-link></li>
+            <li><router-link to="/about/zizhi">荣誉资质</router-link></li>
+            <li><router-link to="/about/lianxi">联系我们</router-link></li>
           </ul>
         </div>
         <div class="fn-item">
@@ -37,8 +36,6 @@
               <br>
               总部基地51-52栋</li>
             <li>电话：0371-68698</li>
-            <li></li>
-            <li></li>
           </ul>
         </div>
         <div class="fn-item-ewm">

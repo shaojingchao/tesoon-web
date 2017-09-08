@@ -3,6 +3,7 @@
  */
 
 const Mock = require('mockjs')
+import pic from '@/assets/img/news-01.jpg'
 Mock.mock(/api\/data/, (req, res) => {
   console.log(req)
   return Mock.mock({
@@ -18,6 +19,18 @@ Mock.mock(/api\/data/, (req, res) => {
       }
     ]
   })
+})
+
+Mock.mock(/api\/new$/, {
+  'data|6': [
+    {
+      'id|+1': 200,
+      title: '天星携手私家车999和许昌学院小书虫公益书屋走进梁北二中',
+      time: Mock.Random.date(),
+      pic: pic,
+      cate: '集团新闻'
+    }
+  ]
 })
 
 Mock.mock(/api\/news\/\d+/, {

@@ -30,17 +30,19 @@
       <h1 class="section-title">天星动态</h1>
       <div class="content">
         <ul class="dynamic-show clearfix">
-          <li class="fl" v-for='item in dynamicList'>
-            <div><img v-bind:src="item.pic"></div>
-            <h3 :title="item.title">{{item.title}}</h3>
-            <div class="text-muted f16">
-              <span class="fl">{{item.time}}</span>
-              <span class="fr">{{item.cate}}</span>
-            </div>
-          </li>
+          <router-link class="fl" tag="li" v-for='item in dynamicList' :to="{path:'/dynamic/all/'+item.id}">
+            <a class="ds-list-item" :title="item.title">
+              <div><img v-bind:src="item.pic"></div>
+              <h3 :title="item.title">{{item.title}}</h3>
+              <div class="text-muted f16 clearfix">
+                <span class="fl">{{item.time}}</span>
+                <span class="fr">{{item.cate}}</span>
+              </div>
+            </a>
+          </router-link>
         </ul>
       </div>
-      <div class="tr content f16 pr30"><a class="text-muted" href="/dynamic">查看更多 ></a></div>
+      <div class="tr content f16 pr30"><router-link class="text-muted" to="/dynamic">查看更多 ></router-link></div>
     </div>
 
     <!--教育出版-->
@@ -56,7 +58,7 @@
             <img class="fr" src="../assets/img/index/jiaoyu_icon.png">
           </div>
         </div>
-        <div class="tc mt10"><a href="" class="f16 text-muted">详细了解 ></a></div>
+        <div class="tc mt10"><router-link to="/service/jiaoyu" class="f16 text-muted">详细了解 ></router-link></div>
       </div>
     </div>
 
@@ -73,7 +75,7 @@
             <img class="fr" src="../assets/img/index/zonghe_icon.png">
           </div>
         </div>
-        <div class="tc mt10"><a href="" class="f16 text-muted">详细了解 ></a></div>
+        <div class="tc mt10"><router-link to="/service/zonghe" class="f16 text-muted">详细了解 ></router-link></div>
       </div>
     </div>
 
@@ -87,7 +89,7 @@
             <img class="fr" src="../assets/img/index/shuzi_icon.png">
           </div>
         </div>
-        <div class="tc mt30"><a href="" class="f16 text-muted">详细了解 ></a></div>
+        <div class="tc mt30"><router-link to="/service/shuzi" class="f16 text-muted">详细了解 ></router-link></div>
         <div class="section-img pt30 mt10">
           <img src="../assets/img/index/shuzi_pic.png">
         </div>
@@ -123,15 +125,6 @@
         </div>
       </div>
     </div>
-
-    <!--口号-->
-
-    <!--<div class="ts-kouhao">-->
-      <!--<span class="dib clearfix">-->
-        <!--<img src="../assets/img/logo.png">-->
-        <!--{{slogan}}-->
-      <!--</span>-->
-    <!--</div>-->
     <MyFooter/>
   </div>
 </template>
@@ -139,50 +132,17 @@
 <script>
   import MyHeader from '@/components/indexHeader.vue'
   import MyFooter from '@/components/footer.vue'
-  import pic from '@/assets/img/news-01.jpg'
   export default{
     data () {
       return {
-        slogan: '为优质教育资源的普及不懈努力！',
         dynamicList: [
-          {
-            title: '天星教育2016年度工作总结暨员工表彰大会顺利开展,天星教育2016年度工作总结暨员工表彰大会顺利开展',
-            pic: pic,
-            cate: '天星动态',
-            time: '2017-07-07'
-          },
-          {
-            title: '天星教育2016年度工作总结暨员工表彰大会顺利开展',
-            pic: pic,
-            cate: '天星动态',
-            time: '2017-07-07'
-          },
-          {
-            title: '天星教育2016年度工作总结暨员工表彰大会顺利开展',
-            pic: pic,
-            cate: '天星动态',
-            time: '2017-07-07'
-          },
-          {
-            title: '天星教育2016年度工作总结暨员工表彰大会顺利开展',
-            pic: pic,
-            cate: '天星动态',
-            time: '2017-07-07'
-          },
-          {
-            title: '天星教育2016年度工作总结暨员工表彰大会顺利开展',
-            pic: pic,
-            cate: '天星动态',
-            time: '2017-07-07'
-          },
-          {
-            title: '天星教育2016年度工作总结暨员工表彰大会顺利开展',
-            pic: pic,
-            cate: '天星动态',
-            time: '2017-07-07'
-          }
         ],
         pingJiaList: [
+          {
+            text: '挺推荐这本的——高考复习讲义适合对象:高三一轮复习的孩子（细心的同学可以观察第一张照片里的第一排，这个系列的物理数学英语化学生物我都做过）这本书真的超级厚，但是也特别适合高三第一轮复习。重难点有划分，也有往年高考原题和创新题。',
+            user: '特级教师 - 王老师',
+            photo: require('../assets/img/index/u-pic_1.jpg')
+          },
           {
             text: '挺推荐这本的——高考复习讲义适合对象:高三一轮复习的孩子（细心的同学可以观察第一张照片里的第一排，这个系列的物理数学英语化学生物我都做过）这本书真的超级厚，但是也特别适合高三第一轮复习。重难点有划分，也有往年高考原题和创新题。',
             user: '特级教师 - 王老师',
@@ -200,6 +160,12 @@
     components: {
       MyHeader,
       MyFooter
+    },
+    created () {
+      this.$http.get('/api/new').then(res => {
+        console.log(res.data.data)
+        this.dynamicList = res.data.data
+      })
     },
     methods: {
       scrollPingJia (i) {
@@ -273,11 +239,15 @@
     li{
       width:345px;
       height:245px;
-      padding:20px 20px 0;
       box-sizing: border-box;
       border:1px solid #e5e5e5;
       box-shadow:0 1px 2px rgba(0,0,0,.1);
       margin:10px;
+      transition:box-shadow 0.2s,transform .2s;
+      &:hover{
+        box-shadow:0 2px 12px 3px rgba(0,0,0,.1);
+        transform: translateY(-2px);
+      }
       img{
         width:100%;
       }
@@ -290,6 +260,12 @@
         text-overflow-ellipsis: ellipsis;
         overflow: hidden;
       }
+    }
+    .ds-list-item{
+      display: block;
+      height:245px;
+      box-sizing: border-box;
+      padding:20px 20px 0;
     }
   }
 
