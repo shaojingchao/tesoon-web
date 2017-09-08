@@ -12,7 +12,6 @@
           <router-link to="/about/wenhua">天星文化</router-link>
           <router-link to="/about/zizhi">荣誉资质</router-link>
           <router-link to="/about/lianxi">联系我们</router-link>
-          <router-link to="/about/gongzuo">加入天星</router-link>
         </div>
 
         <div class="page-content content bg-white pt10">

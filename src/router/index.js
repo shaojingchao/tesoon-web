@@ -13,7 +13,7 @@ import aboutLicheng from '@/components/aboutLicheng.vue'
 import aboutWenhua from '@/components/aboutWenhua.vue'
 import aboutZizhi from '@/components/aboutZizhi.vue'
 import aboutLianxi from '@/components/aboutLianxi.vue'
-import aboutGongzuo from '@/components/aboutGongzuo.vue'
+
 import ErrorPage from '@/components/404.vue'
 
 Vue.use(Router)
@@ -34,6 +34,9 @@ const router = new Router({
       path: '/dynamic/:cate',
       name: 'Dynamic',
       component: Dynamic,
+      meta: {
+        requireAuth: true
+      },
       children: [
         {
           path: ':id',
@@ -88,10 +91,6 @@ const router = new Router({
         {
           path: 'lianxi',
           component: aboutLianxi
-        },
-        {
-          path: 'gongzuo',
-          component: aboutGongzuo
         }
       ]
     },
@@ -102,8 +101,18 @@ const router = new Router({
     }
   ]
 })
+
+// 路由钩子
 router.beforeEach((to, from, next) => {
-  console.log(to)
+  // to.matched.some(record => record.meta.requireAuth)
+  // if (to.matched.some(record => record.meta.requireAuth)) {
+  //   next({
+  //     path: '/login',
+  //     query: {redirect: to.fullPath}
+  //   })
+  // } else {
+  //   next()
+  // }
   next()
 })
 export default router

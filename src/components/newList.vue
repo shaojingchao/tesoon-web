@@ -3,6 +3,7 @@
     <router-link
       class="nl-item db"
       v-for="(item,index) in newList"
+      key="{{item.id}}"
       tag="a" :to="{path:'/dynamic/'+currentNav+'/'+item.id}">
 
       <!--配图-->

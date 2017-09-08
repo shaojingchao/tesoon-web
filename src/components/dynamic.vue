@@ -24,6 +24,7 @@
               <router-link
                 :class="{current:currentNav === item.cate}"
                 v-for="(item,index) in navList"
+                key="{{item.cate}}"
                 tag="li"
                 :to="{path:'/dynamic/'+item.cate}"><a class="db">{{item.name}}</a></router-link>
             </ul>

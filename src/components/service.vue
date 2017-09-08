@@ -21,9 +21,9 @@
   </div>
 </template>
 <style lang="less">
-  .page-content{
-    max-width:1000px;
-  }
+  /*.page-content{*/
+    /*max-width:1000px;*/
+  /*}*/
 </style>
 
 <script>

@@ -5,8 +5,8 @@ import App from './App'
 import router from './router'
 import './assets/css/base.less'
 
-import './bower_components/PACE/themes/blue/pace-theme-flash.css'
-require('./bower_components/PACE/pace.min.js')
+// import './bower_components/PACE/themes/blue/pace-theme-flash.css'
+// require('./bower_components/PACE/pace.min.js')
 require('./mock')
 import axios from 'axios'
 
