@@ -7,7 +7,7 @@ import loading from '@/bower_components/loading/loading-spin.svg'
 const MyLoading = {}
 MyLoading.install = function (Vue, options) {
   // 显示动画
-  Vue.$showLoading = () => {
+  Vue.prototype.$showLoading = () => {
     let div = document.createElement('div')
     let loadingImg = new Image()
     loadingImg.src = loading
@@ -17,7 +17,7 @@ MyLoading.install = function (Vue, options) {
     document.body.prepend(div)
   }
   // 隐藏动画
-  Vue.$hideLoading = () => {
+  Vue.prototype.$hideLoading = () => {
     let getDiv = document.querySelector('#loading-svg')
     getDiv.className = 'animated-loading fadeOut'
     setTimeout(() => {

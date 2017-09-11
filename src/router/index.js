@@ -119,12 +119,12 @@ const router = new Router({
 
 // 路由钩子
 router.beforeEach((to, from, next) => {
-  Vue.$showLoading()
+  // Vue.$showLoading()
   next()
 })
 
 router.afterEach((to) => {
-  Vue.$hideLoading()
+  // Vue.$hideLoading()
   if (to.hash) {
     let currentY = document.documentElement.getBoundingClientRect().y
     let el = document.querySelector(to.hash)

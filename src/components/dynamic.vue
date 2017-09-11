@@ -208,6 +208,7 @@
     },
     created () {
       this.getNewList('', (res) => {
+        this.$hideLoading()
         this.newList = this.newList.concat(res.data.data)
         if (this.$route.params.cate) {
           this.currentNav = this.$route.params.cate
@@ -236,12 +237,14 @@
       getNewList (tab, cb) {
         let cate = tab ? '?id=' + tab : ''
         this.newList = []
+        this.$showLoading()
         setTimeout(() => {
           this.$http({
             url: '/api/data' + cate,
             method: 'post'
           }).then((res, rev) => {
             cb && cb(res)
+            this.$hideLoading()
           })
         }, Math.floor(Math.random() * 800))
       }
