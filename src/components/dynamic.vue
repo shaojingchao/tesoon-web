@@ -13,8 +13,9 @@
         </div>
 
         <div class="page-body" v-if="isList">
-          <NewList :newList="newList" :currentNav="currentNav"/>
-          <Pager class="tr pb30" @goToPage="goToPage"/>
+          <NewList :newList="newList" v-if="newList.length>0" :currentNav="currentNav"/>
+          <div class="tc text-muted pt30 pb30 f16" v-else>拼命加载中...</div>
+          <Pager class="tr pb30" v-if="newList.length>0" @goToPage="goToPage"/>
         </div>
 
         <div class="dynamic-nav">
@@ -107,6 +108,12 @@
       padding:20px;
       border:1px solid #eee;
       margin-bottom:20px;
+      transition:all 0.2s;
+      &:hover{
+        background-color: #f6f6f6;
+        border-color:#ddd;
+        box-shadow:0 1px 10px rgba(0,0,0,.15);
+      }
     }
     .create-time{
       float: left;
@@ -153,7 +160,7 @@
   }
 
 </style>
-<script>
+<script type="text/ecmascript-6">
   import MyHeader from '@/components/header.vue'
   import MyFooter from '@/components/footer.vue'
   import NewList from '@/components/newList.vue'

@@ -38,9 +38,10 @@
     color: #333;
     &.side-btn{
       /*width:4em;*/
-      font-size:1.2em;
+      font-size:1.15em;
       line-height:26px;
-      font-family:consolas, sans-serif;
+      font-weight:600;
+      font-family:Simsun, sans-serif;
     }
   }
 
@@ -57,7 +58,7 @@
 
 
 </style>
-<script>
+<script type="text/ecmascript-6">
   export default {
     data () {
       return {

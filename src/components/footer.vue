@@ -41,7 +41,7 @@
         <div class="fn-item-ewm">
           <div class="tx-ewm">
             <img src="../assets/img/ewm.png">
-            <p>扫码或输入网址<br>http://weixin.tetsen.com</p>
+            <p>关注天星教育微信公众号<br>请使用微信扫描二维码</p>
           </div>
         </div>
       </div>

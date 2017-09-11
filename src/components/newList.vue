@@ -13,21 +13,21 @@
 
       <!--内容-->
       <div class="item-context">
-        <div class="title elli">{{item.title}}</div>
+        <div class="title elli" :title="item.title">{{item.title}}</div>
         <div class="context text-muted f16">
-          {{item.context}}
+          {{item.context.slice(0,110)}}
         </div>
         <div class="info text-muted mt10">
-          <span class="info-item">{{item.time}}</span>
-          <span class="info-item">{{item.author}}</span>
-          <span class="info-item">{{item.cate}}</span>
+          <span class="info-item" :title="item.time">{{item.time}}</span>
+          <span class="info-item" :title="item.author">{{item.author}}</span>
+          <span class="info-item" :title="item.cate">{{item.cate}}</span>
         </div>
       </div>
     </router-link>
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   export default{
     data () {
       return {

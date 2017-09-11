@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import './assets/css/base.less'
+import '@/bower_components/animate.css/animate.min.css'
 
 // import './bower_components/PACE/themes/blue/pace-theme-flash.css'
 // require('./bower_components/PACE/pace.min.js')

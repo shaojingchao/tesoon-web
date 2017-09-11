@@ -33,7 +33,7 @@
   }
   .about-banner{
     height:359px;
-    background: #fff url(../assets/img/page/about.png) 50% 0 no-repeat;
+    background: #fff url(../assets/img/page/about.jpg) 50% 0 no-repeat;
     .page-crumbs{
       color:#fff;
     }

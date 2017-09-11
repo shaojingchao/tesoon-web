@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Loading from '@/loading'
+
+// components
 import Index from '@/components/index.vue'
 import Dynamic from '@/components/dynamic.vue'
 import DynamicDetail from '@/components/dynamicDetail.vue'
@@ -13,13 +16,14 @@ import aboutLicheng from '@/components/aboutLicheng.vue'
 import aboutWenhua from '@/components/aboutWenhua.vue'
 import aboutZizhi from '@/components/aboutZizhi.vue'
 import aboutLianxi from '@/components/aboutLianxi.vue'
-
 import ErrorPage from '@/components/404.vue'
 
+Vue.use(Loading)
 Vue.use(Router)
 
 const router = new Router({
   mode: 'hash',
+  // 仅在 mode history 可用
   scrollBehavior (to, from, savedPosition) {
     if (to.hash) {
       return {
@@ -115,15 +119,20 @@ const router = new Router({
 
 // 路由钩子
 router.beforeEach((to, from, next) => {
-  // to.matched.some(record => record.meta.requireAuth)
-  // if (to.matched.some(record => record.meta.requireAuth)) {
-  //   next({
-  //     path: '/login',
-  //     query: {redirect: to.fullPath}
-  //   })
-  // } else {
-  //   next()
-  // }
+  Vue.$showLoading()
   next()
+})
+
+router.afterEach((to) => {
+  Vue.$hideLoading()
+  if (to.hash) {
+    let currentY = document.documentElement.getBoundingClientRect().y
+    let el = document.querySelector(to.hash)
+    if (el) {
+      scrollTo(0, el.getBoundingClientRect().y - currentY)
+    }
+  } else {
+    scrollTo(0, 0)
+  }
 })
 export default router

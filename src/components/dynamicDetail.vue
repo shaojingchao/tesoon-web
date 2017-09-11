@@ -12,6 +12,8 @@
 <style lang="less">
   .dynamic-detail{
     font-size:16px;
+    line-height: 1.8;
+    padding-bottom: 80px;
   }
 </style>
 <script>
