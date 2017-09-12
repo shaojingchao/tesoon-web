@@ -29,7 +29,7 @@
     <div class="index-section bg-white wow fadeInUp" data-wow-offset="100">
       <h1 class="section-title">天星动态</h1>
       <div class="content">
-        <ul class="dynamic-show clearfix">
+        <ul class="dynamic-show clearfix" v-if="dynamicList.length>0">
           <router-link
             class="fl news-wow fadeInUp"
             :data-wow-delay="(index*0.15)+'s'"
@@ -47,8 +47,9 @@
             </a>
           </router-link>
         </ul>
+        <div class="tc text-muted f16" v-else>拼命加载中</div>
       </div>
-      <div class="tr content f16 pr30">
+      <div class="tr content f16 pr30" v-if="dynamicList.length>0">
         <router-link class="text-muted" to="/dynamic">查看更多 ></router-link>
       </div>
     </div>
@@ -182,7 +183,6 @@
     created () {
       this.initWOW('wow')
       this.$http.get('/api/new').then(res => {
-        console.log(this.dynamicList)
         this.dynamicList = res.data.data
         this.$nextTick(() => {
           this.initWOW('news-wow')
@@ -277,13 +277,13 @@
       width: 345px;
       height: 245px;
       box-sizing: border-box;
-      border: 1px solid #e5e5e5;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+      border: 1px solid #eeeeee;
       margin: 10px;
-      transition: box-shadow 0.2s, transform .2s;
+      transition: all 0.2s;
       &:hover {
-        box-shadow: 0 2px 12px 3px rgba(0, 0, 0, .1);
-        transform: translateY(-2px);
+        transform: translateY(-1px);
+        border-color:#f6f6f6;
+        box-shadow:0 6px 30px 3px rgba(0,0,0,.15);
       }
       img {
         width: 100%;

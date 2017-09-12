@@ -12,10 +12,9 @@
           </transition>
         </div>
 
-        <div class="page-body" v-if="isList">
-          <NewList :newList="newList" v-if="newList.length>0" :currentNav="currentNav"/>
-          <div class="tc text-muted pt30 pb30 f16" v-else>拼命加载中...</div>
-          <Pager class="tr pb30" v-if="newList.length>0" @goToPage="goToPage"/>
+        <div class="page-body" v-if="isList && newList.length>0">
+          <NewList :newList="newList" :currentNav="currentNav"/>
+          <Pager class="tr pb30" @goToPage="goToPage"/>
         </div>
 
         <div class="dynamic-nav">
@@ -43,7 +42,7 @@
     <MyFooter/>
   </div>
 </template>
-<style lang="less">
+<style lang="less" rel="stylesheet/less">
   @import "../assets/variable.less";
 
   //天星动态
@@ -106,13 +105,13 @@
     .nl-item{
       overflow: hidden;
       padding:20px;
-      border:1px solid #eee;
+      border:1px solid #eeeeee;
       margin-bottom:20px;
       transition:all 0.2s;
       &:hover{
-        background-color: #f6f6f6;
-        border-color:#ddd;
-        box-shadow:0 1px 10px rgba(0,0,0,.15);
+        transform: translateY(-1px);
+        border-color:#f6f6f6;
+        box-shadow:0 6px 30px 3px rgba(0,0,0,.15);
       }
     }
     .create-time{
@@ -165,7 +164,6 @@
   import MyFooter from '@/components/footer.vue'
   import NewList from '@/components/newList.vue'
   import Pager from '@/components/pager.vue'
-  // import Loading from '@/components/loading.vue'
   export default {
     data () {
       return {
@@ -236,17 +234,15 @@
       // 获取列表数据
       getNewList (tab, cb) {
         let cate = tab ? '?id=' + tab : ''
-        this.newList = []
+        // this.newList = []
         this.$showLoading()
-        setTimeout(() => {
-          this.$http({
-            url: '/api/data' + cate,
-            method: 'post'
-          }).then((res, rev) => {
-            cb && cb(res)
-            this.$hideLoading()
-          })
-        }, Math.floor(Math.random() * 800))
+        this.$http({
+          url: '/api/data' + cate,
+          method: 'post'
+        }).then((res, rev) => {
+          cb && cb(res)
+          this.$hideLoading()
+        })
       }
     }
   }

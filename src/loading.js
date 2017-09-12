@@ -8,6 +8,9 @@ const MyLoading = {}
 MyLoading.install = function (Vue, options) {
   // 显示动画
   Vue.prototype.$showLoading = () => {
+    if (document.querySelector('#loading-svg')) {
+      return false
+    }
     let div = document.createElement('div')
     let loadingImg = new Image()
     loadingImg.src = loading
@@ -19,10 +22,12 @@ MyLoading.install = function (Vue, options) {
   // 隐藏动画
   Vue.prototype.$hideLoading = () => {
     let getDiv = document.querySelector('#loading-svg')
-    getDiv.className = 'animated-loading fadeOut'
-    setTimeout(() => {
-      getDiv.remove()
-    }, 250)
+    if (getDiv) {
+      getDiv.className = 'animated-loading fadeOut'
+      setTimeout(() => {
+        getDiv.remove()
+      }, 190)
+    }
   }
 }
 export default MyLoading

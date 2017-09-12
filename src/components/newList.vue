@@ -4,7 +4,9 @@
       class="nl-item db"
       v-for="(item,index) in newList"
       key="{{item.id}}"
-      tag="a" :to="{path:'/dynamic/'+currentNav+'/'+item.id}">
+      :title="'天星教育官网 - 新闻动态 - '+item.title.slice(0,255)"
+      target="_blank"
+      tag="a" :to="{path:'/dynamic/'+currentNav+'/'+item.id,title:'asdasdasddas'}">
 
       <!--配图-->
       <div class="nl-item-img">
@@ -33,6 +35,10 @@
       return {
         msg: 'hello vue'
       }
+    },
+    beforeRouteEnter (to, from, next) {
+      console.log('dasda', to, from)
+      next()
     },
     props: {
       newList: {

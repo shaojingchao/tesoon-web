@@ -17,6 +17,7 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  title: '天星教育官网',
   router,
   template: '<App/>',
   components: {App}

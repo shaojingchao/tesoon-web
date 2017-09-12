@@ -11,7 +11,7 @@
         </div>
 
         <div class="page-content content bg-white pt10">
-          <transition name="fadeIn-down" appear mode="out-in">
+          <transition name="fadeIn-down" :duration="{ enter: 500, leave: 0 }" appear mode="out-in">
             <router-view></router-view>
           </transition>
         </div>

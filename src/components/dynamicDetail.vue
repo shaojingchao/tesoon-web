@@ -16,13 +16,17 @@
     padding-bottom: 80px;
   }
 </style>
-<script>
+<script type="text/ecmascript-6">
   export default{
     data () {
       return {
         msg: 'hello vue',
         content: {}
       }
+    },
+    beforeRouteEnter (to, from, next) {
+      console.log('dasda', to)
+      next()
     },
     props: ['param'],
     created () {
