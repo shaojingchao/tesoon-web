@@ -176,6 +176,15 @@
         pjCurrentIndex: 0
       }
     },
+    metaInfo () {
+      return {
+        title: '天星教育 - 首页',
+        meta: [{
+          name: '河南天星教育传媒股份有限公司',
+          content: '天星教育是一家致力于教育图书出版及提供教育信息服务的文化教育机构，自1998年成立以来，已发展成为河南民营书业的旗舰品牌。公司坐落于历史文化源远流长的中原大地，秉承着中原儿女自强不息、上下求索的民族精神，积极投身于文化产业发展的大潮中，为了民族教育的振兴和发展，贡献着自己的智慧和热忱。'
+        }]
+      }
+    },
     components: {
       MyHeader,
       MyFooter
@@ -281,9 +290,7 @@
       margin: 10px;
       transition: all 0.2s;
       &:hover {
-        transform: translateY(-1px);
-        border-color:#f6f6f6;
-        box-shadow:0 6px 30px 3px rgba(0,0,0,.15);
+        box-shadow:0 8px 20px -1px rgba(0,0,0,.12);
       }
       img {
         width: 100%;

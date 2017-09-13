@@ -42,6 +42,95 @@
     <MyFooter/>
   </div>
 </template>
+<script type="text/ecmascript-6">
+  import MyHeader from '@/components/header.vue'
+  import MyFooter from '@/components/footer.vue'
+  import NewList from '@/components/newList.vue'
+  import Pager from '@/components/pager.vue'
+  export default {
+    data () {
+      return {
+        navList: [
+          {
+            cate: 'all',
+            name: '全部新闻'
+          },
+          {
+            cate: 'jt',
+            name: '集团新闻'
+          },
+          {
+            cate: 'hy',
+            name: '行业新闻'
+          },
+          {
+            cate: 'yg',
+            name: '员工活动'
+          }
+        ],
+        navItemTag: ['all', 'jt', 'hy', 'yg'],
+        currentNav: '',
+        newList: []
+      }
+    },
+    metaInfo () {
+      return {
+        title: '天星教育 - 天星动态'
+      }
+    },
+    components: {
+      MyHeader,
+      MyFooter,
+      NewList,
+      Pager
+    },
+    computed: {
+      isList () { // 是否是列表
+        let params = this.$route.params
+        let cate = params.cate
+        let id = params.id
+        return this.navItemTag.indexOf(cate) !== -1 && !id
+      }
+    },
+    created () {
+      this.getNewList('all', (res) => {
+        this.newList = this.newList.concat(res.data.data)
+        if (this.$route.params.cate) {
+          this.currentNav = this.$route.params.cate
+        }
+      })
+    },
+
+    // 导航路由钩子
+    beforeRouteUpdate (to, from, next) {
+      this.getNewList('', (res) => {
+        this.newList = res.data.data
+        if (to.params.cate) {
+          this.currentNav = to.params.cate
+        }
+      })
+      next()
+    },
+    methods: {
+      goToPage (index) {
+        this.getNewList(index, (res) => {
+          this.newList = res.data.data
+        })
+      },
+
+      // 获取列表数据
+      getNewList (tab, cb) {
+        let cate = tab ? '?id=' + tab : ''
+        this.$showLoading()
+        this.$http.get('/api/data' + cate).then((res, rev) => {
+          cb && cb(res)
+          this.$hideLoading()
+        })
+      }
+    }
+  }
+</script>
+
 <style lang="less" rel="stylesheet/less">
   @import "../assets/variable.less";
 
@@ -109,9 +198,7 @@
       margin-bottom:20px;
       transition:all 0.2s;
       &:hover{
-        transform: translateY(-1px);
-        border-color:#f6f6f6;
-        box-shadow:0 6px 30px 3px rgba(0,0,0,.15);
+        box-shadow:0 8px 20px -1px rgba(0,0,0,.12);
       }
     }
     .create-time{
@@ -159,91 +246,3 @@
   }
 
 </style>
-<script type="text/ecmascript-6">
-  import MyHeader from '@/components/header.vue'
-  import MyFooter from '@/components/footer.vue'
-  import NewList from '@/components/newList.vue'
-  import Pager from '@/components/pager.vue'
-  export default {
-    data () {
-      return {
-        navList: [
-          {
-            cate: 'all',
-            name: '全部新闻'
-          },
-          {
-            cate: 'jt',
-            name: '集团新闻'
-          },
-          {
-            cate: 'hy',
-            name: '行业新闻'
-          },
-          {
-            cate: 'yg',
-            name: '员工活动'
-          }
-        ],
-        navItemTag: ['all', 'jt', 'hy', 'yg'],
-        currentNav: '',
-        newList: []
-      }
-    },
-    components: {
-      MyHeader,
-      MyFooter,
-      NewList,
-      Pager
-    },
-    computed: {
-      isList () { // 是否是列表
-        let params = this.$route.params
-        let cate = params.cate
-        let id = params.id
-        return this.navItemTag.indexOf(cate) !== -1 && !id
-      }
-    },
-    created () {
-      this.getNewList('', (res) => {
-        this.$hideLoading()
-        this.newList = this.newList.concat(res.data.data)
-        if (this.$route.params.cate) {
-          this.currentNav = this.$route.params.cate
-        }
-      })
-    },
-
-    // 导航路由钩子
-    beforeRouteUpdate (to, from, next) {
-      this.getNewList('', (res) => {
-        this.newList = res.data.data
-        if (to.params.cate) {
-          this.currentNav = to.params.cate
-        }
-        next()
-      })
-    },
-    methods: {
-      goToPage (index) {
-        this.getNewList(index, (res) => {
-          this.newList = res.data.data
-        })
-      },
-
-      // 获取列表数据
-      getNewList (tab, cb) {
-        let cate = tab ? '?id=' + tab : ''
-        // this.newList = []
-        this.$showLoading()
-        this.$http({
-          url: '/api/data' + cate,
-          method: 'post'
-        }).then((res, rev) => {
-          cb && cb(res)
-          this.$hideLoading()
-        })
-      }
-    }
-  }
-</script>

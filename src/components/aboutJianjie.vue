@@ -30,6 +30,15 @@
     </div>
   </div>
 </template>
+<script type="text/ecmascript-6">
+  export default {
+    metaInfo () {
+      return {
+        title: '天星教育 - 集团简介'
+      }
+    }
+  }
+</script>
 <style lang="less">
   .jianjie-wrap{
     padding:60px 0 80px;

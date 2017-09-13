@@ -24,3 +24,12 @@
     </div>
   </div>
 </template>
+<script type="text/ecmascript-6">
+  export default {
+    metaInfo () {
+      return {
+        title: '天星教育 - 数字出版'
+      }
+    }
+  }
+</script>

@@ -84,7 +84,7 @@
     }
   }
 </style>
-<script>
+<script type="text/ecmascript-6">
   export default {
     data () {
       return {
@@ -175,6 +175,11 @@
             pic: require('../assets/img/page/rongyu_pic/17.jpg')
           }
         ]
+      }
+    },
+    metaInfo () {
+      return {
+        title: '天星教育 - 荣誉资质'
       }
     }
   }

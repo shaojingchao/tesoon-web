@@ -14,6 +14,15 @@
     </ul>
   </div>
 </template>
+<script type="text/ecmascript-6">
+  export default {
+    metaInfo () {
+      return {
+        title: '天星教育 - 联系我们'
+      }
+    }
+  }
+</script>
 <style lang="less">
   .lianxi-wrap{
     padding-bottom: 80px;

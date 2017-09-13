@@ -33,7 +33,7 @@ Mock.mock(/api\/new$/, {
   'data|6': [
     {
       'id|+1': 200,
-      title: '天星携手私家车999和许昌学院小书虫公益书屋走进梁北二中',
+      title: Mock.Random.cword(20, 40),
       time: Mock.Random.date(),
       pic: pic,
       cate: '集团新闻'
@@ -43,7 +43,7 @@ Mock.mock(/api\/new$/, {
 
 Mock.mock(/api\/news\/\d+/, {
   'data': {
-    title: '天星携手私家车999和许昌学院小书虫公益书屋走进梁北二中',
+    title: Mock.Random.cword(20, 40),
     context: Mock.Random.cparagraph(80),
     time: Mock.Random.date(),
     author: '文/营销中心 倪秋利',

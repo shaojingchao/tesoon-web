@@ -6,10 +6,16 @@ import router from './router'
 import './assets/css/base.less'
 import '@/bower_components/animate.css/animate.min.css'
 
-// import './bower_components/PACE/themes/blue/pace-theme-flash.css'
-// require('./bower_components/PACE/pace.min.js')
+import Loading from '@/loading'
+import MetaInfo from 'vue-meta-info'
 require('./mock')
+require('es6-promise').polyfill()
+// import Promise from 'es6-promise'
+// Promise.polyfill()
 import axios from 'axios'
+
+Vue.use(Loading)
+Vue.use(MetaInfo)
 
 Vue.prototype.$http = axios
 Vue.config.productionTip = false
@@ -17,7 +23,6 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  title: '天星教育官网',
   router,
   template: '<App/>',
   components: {App}

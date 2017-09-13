@@ -16,8 +16,8 @@ MyLoading.install = function (Vue, options) {
     loadingImg.src = loading
     div.id = 'loading-svg'
     div.className = 'animated-loading fadeInDown'
-    div.append(loadingImg)
-    document.body.prepend(div)
+    div.appendChild(loadingImg)
+    document.body.appendChild(div)
   }
   // 隐藏动画
   Vue.prototype.$hideLoading = () => {
@@ -25,7 +25,9 @@ MyLoading.install = function (Vue, options) {
     if (getDiv) {
       getDiv.className = 'animated-loading fadeOut'
       setTimeout(() => {
-        getDiv.remove()
+        if (getDiv.parentNode != null) {
+          getDiv.parentNode.removeChild(getDiv)
+        }
       }, 190)
     }
   }

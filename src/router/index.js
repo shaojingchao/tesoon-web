@@ -1,26 +1,22 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Loading from '@/loading'
-// import SetTitle from '@/setTitle'
 
 // components
-import Index from '@/components/index.vue'
-import Dynamic from '@/components/dynamic.vue'
-import DynamicDetail from '@/components/dynamicDetail.vue'
-import Service from '@/components/service.vue'
-import ServiceTab1 from '@/components/serviceTab1.vue'
-import ServiceTab2 from '@/components/serviceTab2.vue'
-import ServiceTab3 from '@/components/serviceTab3.vue'
-import About from '@/components/about.vue'
-import aboutJianjie from '@/components/aboutJianjie.vue'
-import aboutLicheng from '@/components/aboutLicheng.vue'
-import aboutWenhua from '@/components/aboutWenhua.vue'
-import aboutZizhi from '@/components/aboutZizhi.vue'
-import aboutLianxi from '@/components/aboutLianxi.vue'
-import ErrorPage from '@/components/404.vue'
+const Index = () => import('@/components/index.vue')
+const Dynamic = () => import('@/components/dynamic.vue')
+const DynamicDetail = () => import('@/components/dynamicDetail.vue')
+const Service = () => import('@/components/service.vue')
+const ServiceTab1 = () => import('@/components/serviceTab1.vue')
+const ServiceTab2 = () => import('@/components/serviceTab2.vue')
+const ServiceTab3 = () => import('@/components/serviceTab3.vue')
+const About = () => import('@/components/about.vue')
+const aboutJianjie = () => import('@/components/aboutJianjie.vue')
+const aboutLicheng = () => import('@/components/aboutLicheng.vue')
+const aboutWenhua = () => import('@/components/aboutWenhua.vue')
+const aboutZizhi = () => import('@/components/aboutZizhi.vue')
+const aboutLianxi = () => import('@/components/aboutLianxi.vue')
+const ErrorPage = () => import('@/components/404.vue')
 
-Vue.use(Loading)
-// Vue.use(SetTitle)
 Vue.use(Router)
 
 const router = new Router({
@@ -158,15 +154,10 @@ const router = new Router({
 })
 
 // 路由钩子
-// router.beforeEach((to, from, next, tit) => {
-//
-// })
-
-router.afterEach((to) => {
-  if (to.meta && to.meta.title) {
-    document.title = to.meta.title
-  }
-  // next()
+router.afterEach((to, from) => {
+  // if (to.meta && to.meta.title) {
+  //   document.title = to.meta.title
+  // }
   if (to.hash) {
     let currentY = document.documentElement.getBoundingClientRect().y
     let el = document.querySelector(to.hash)

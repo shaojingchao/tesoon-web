@@ -1,12 +1,12 @@
 <template>
   <div class="news-list">
     <router-link
-      class="nl-item db"
+      class="nl-item db clearfix"
       v-for="(item,index) in newList"
       key="{{item.id}}"
-      :title="'天星教育官网 - 新闻动态 - '+item.title.slice(0,255)"
+      :title="item.title"
       target="_blank"
-      tag="a" :to="{path:'/dynamic/'+currentNav+'/'+item.id,title:'asdasdasddas'}">
+      tag="a" :to="{path:'/dynamic/'+currentNav+'/'+item.id}">
 
       <!--配图-->
       <div class="nl-item-img">

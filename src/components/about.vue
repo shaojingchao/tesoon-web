@@ -25,41 +25,48 @@
   </div>
 </template>
 <style lang="less">
-  .page-content{
+  .page-content {
     /*max-width:1000px;*/
-    img{
-      max-width:100%;
+    img {
+      max-width: 100%;
     }
   }
-  .about-banner{
-    height:359px;
+
+  .about-banner {
+    height: 359px;
     background: #fff url(../assets/img/page/about.jpg) 50% 0 no-repeat;
-    .page-crumbs{
-      color:#fff;
+    .page-crumbs {
+      color: #fff;
     }
   }
-  .about-body{
-    .page-nav-tab{
+
+  .about-body {
+    .page-nav-tab {
       display: flex;
       /*align-items: stretch;*/
       justify-content: space-around;
-      a{
-        margin-right:0;
-        font-size:16px;
-        height:60px;
-        line-height:60px;
+      a {
+        margin-right: 0;
+        font-size: 16px;
+        height: 60px;
+        line-height: 60px;
       }
     }
   }
 </style>
 
-<script>
-import MyHeader from './header.vue'
-import MyFooter from './footer.vue'
-export default {
-  components: {
-    MyHeader,
-    MyFooter
+<script type="text/ecmascript-6">
+  import MyHeader from './header.vue'
+  import MyFooter from './footer.vue'
+  export default {
+    metaInfo () {
+      return {
+        title: '天星教育 - 了解天星'
+      }
+    },
+    components: {
+      MyHeader,
+      MyFooter
+    }
   }
-}
 </script>

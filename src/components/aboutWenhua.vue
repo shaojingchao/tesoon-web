@@ -53,6 +53,15 @@
     </div>
   </div>
 </template>
+<script type="text/ecmascript-6">
+  export default {
+    metaInfo () {
+      return {
+        title: '天星教育 - 天星文化'
+      }
+    }
+  }
+</script>
 <style lang="less">
 
   @import '../assets/css/_mixins-wln/_wln-variables.less';

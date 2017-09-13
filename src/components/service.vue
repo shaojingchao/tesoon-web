@@ -22,17 +22,26 @@
 </template>
 <style lang="less">
   /*.page-content{*/
-    /*max-width:1000px;*/
+  /*max-width:1000px;*/
   /*}*/
 </style>
 
-<script>
-import MyHeader from './header.vue'
-import MyFooter from './footer.vue'
-export default {
-  components: {
-    MyHeader,
-    MyFooter
+<script type="text/ecmascript-6">
+  import MyHeader from './header.vue'
+  import MyFooter from './footer.vue'
+  export default {
+    metaInfo () {
+      return {
+        title: '天星教育 - 集团业务', // set a title
+        meta: [{                 // set meta
+          name: 'keyWords',
+          content: 'My Example App'
+        }]
+      }
+    },
+    components: {
+      MyHeader,
+      MyFooter
+    }
   }
-}
 </script>
