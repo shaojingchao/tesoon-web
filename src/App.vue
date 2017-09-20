@@ -1,16 +1,23 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <div class="g-components-view">
+      <side-bar></side-bar>
+    </div>
+    <router-view class="view-content"></router-view>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+  import SideBar from './components/sideBar.vue'
   export default {
     name: 'app',
     data () {
       return {
         pageName: 'loading'
       }
+    },
+    components: {
+      SideBar
     },
     mounted () {
       setTimeout(() => {

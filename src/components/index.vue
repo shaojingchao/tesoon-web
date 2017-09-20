@@ -488,7 +488,7 @@
     .dynamic-show {
       li {
         display: block;
-        width: auto;
+        width: 100%;
         height: auto;
         margin: 10px 0 0;
         transition: none;
