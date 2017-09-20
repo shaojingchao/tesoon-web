@@ -133,7 +133,7 @@
 </script>
 
 <style lang="less" rel="stylesheet/less">
-  @import "../assets/variable.less";
+  @import "../assets/css/_mixins-wln.less";
 
   //天星动态
   .dynamic-page-wrap{

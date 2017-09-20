@@ -48,7 +48,7 @@
 
 </script>
 <style lang="less">
-  @import "../assets/variable.less";
+  @import "../assets/css/_mixins-wln.less";
 
   .header {
     .logo {

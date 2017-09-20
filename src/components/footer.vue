@@ -56,7 +56,7 @@
 
 <style scoped lang="less">
 
-  @import "../assets/variable.less";
+  @import "../assets/css/_mixins-wln.less";
   .footer-wrap{
     background-color:#0c2c4a;
     .footer{
