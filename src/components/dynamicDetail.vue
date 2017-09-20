@@ -15,6 +15,21 @@
     line-height: 1.8;
     padding-bottom: 80px;
   }
+
+  @media screen and (max-width:767px) {
+    .dynamic-detail{
+      font-size:14px;
+      line-height: 1.5;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      h2{
+        line-height:1.4;
+        font-size:24px;
+        font-weight: 700;
+        padding-bottom: 10px;
+      }
+    }
+  }
 </style>
 <script type="text/ecmascript-6">
   export default{

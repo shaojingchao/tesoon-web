@@ -21,7 +21,7 @@
         </div>
         <div class="info text-muted mt10">
           <span class="info-item" :title="item.time">{{item.time}}</span>
-          <span class="info-item" :title="item.author">{{item.author}}</span>
+          <span class="info-item hide-xs" :title="item.author">{{item.author}}</span>
           <span class="info-item" :title="item.cate">{{item.cate}}</span>
         </div>
       </div>

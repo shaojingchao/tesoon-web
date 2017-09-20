@@ -2,20 +2,10 @@
   <div>
     <MyHeader/>
     <div class="dynamic-page-wrap">
-      <div class="content">
+      <div class="content hide-xs">
         <div class="page-crumbs">首页 > 天星动态</div>
       </div>
       <div class="dynamic-page content clearfix">
-        <div class="page-body" v-if="!isList">
-          <transition name="fadeIn-down" appear mode="out-in">
-            <router-view :param="$route"></router-view>
-          </transition>
-        </div>
-
-        <div class="page-body" v-if="isList && newList.length>0">
-          <NewList :newList="newList" :currentNav="currentNav"/>
-          <Pager class="tr pb30" @goToPage="goToPage"/>
-        </div>
 
         <div class="dynamic-nav">
           <div class="rn-item">
@@ -29,13 +19,24 @@
                 :to="{path:'/dynamic/'+item.cate}"><a class="db">{{item.name}}</a></router-link>
             </ul>
           </div>
-          <div class="rn-item pt20">
+          <div class="rn-item pt20 hide-xs">
             <h3 class="rn-item-title">关注我们</h3>
             <div class="rn-ewm pt30">
               <p>已超20万小伙伴关注</p>
               <img class="rn-ewm-img" src="../assets/img/ewm.png">
             </div>
           </div>
+        </div>
+
+        <div class="page-body" v-if="!isList">
+          <transition name="fadeIn-down" appear mode="out-in">
+            <router-view :param="$route"></router-view>
+          </transition>
+        </div>
+
+        <div class="page-body" v-if="isList && newList.length>0">
+          <NewList :newList="newList" :currentNav="currentNav"/>
+          <Pager class="tr pb30" @goToPage="goToPage"/>
         </div>
       </div>
     </div>
@@ -141,14 +142,14 @@
   .dynamic-page{
     padding-bottom: 40px;
     .page-body{
-      float: right;
+      float: left;
       width:850px;
       padding-top: 57px;
     }
 
     .dynamic-nav{
       width:200px;
-      float: left;
+      float: right;
       text-align: center;
       .rn-item-title{
         font-weight:400;
@@ -201,19 +202,6 @@
         box-shadow:0 8px 20px -1px rgba(0,0,0,.12);
       }
     }
-    .create-time{
-      float: left;
-      width:120px;
-      text-align: center;
-      padding-top: 40px;
-      .date{
-        border-bottom:1px solid #333;
-        width:50px;
-      }
-      span{
-        display: inline-block;
-      }
-    }
     .item-context{
       width:608px;
       float: left;
@@ -242,6 +230,95 @@
         max-width:100%;
         margin:0 auto;
       }
+    }
+  }
+
+  @media screen and (max-width:767px){
+    //天星动态
+    .dynamic-page{
+      padding-bottom: 40px;
+      .page-body{
+        float: none;
+        width:auto;
+        padding-top: 5px;
+      }
+
+      .dynamic-nav{
+        width:auto;
+        float: none;
+        text-align: left;
+        .rn-item-title{
+          display: none;
+        }
+        .nav-list{
+          white-space: nowrap;
+          overflow: scroll;
+          border-bottom:1px solid #eee;
+          li{
+            display: inline-block;
+            font-size:15px;
+            line-height:46px;
+            height:46px;
+            box-sizing: border-box;
+            margin-right:4px;
+            padding:0 2px;
+            border-bottom:none;
+            transition: all 0.3s;
+            &:hover{
+              background-color: #fff;
+            }
+          }
+          .router-link-exact-active{
+            color: @primary;
+            border-bottom:2px solid @primary;
+          }
+        }
+      }
+    }
+
+    /*新闻列表*/
+    .news-list{
+      .nl-item{
+        padding:10px 0;
+        border:none;
+        border-bottom:1px solid #eeeeee;
+        margin-bottom:0;
+        &:hover{
+          box-shadow:none;
+        }
+      }
+      .item-context{
+        width:auto;
+        float: none;
+        .title{
+          font-size:15px;
+          white-space: normal;
+          word-break:break-all;
+          display:-webkit-box;
+          -webkit-line-clamp:2;
+          -webkit-box-orient:vertical;
+          overflow:hidden;
+        }
+        .context{
+          display: none;
+        }
+        .info-item{
+          font-size:14px;
+          margin-right: 10px;
+          &:last-child{
+            margin-right:0;
+          }
+        }
+      }
+      .nl-item-img{
+        width:120px;
+        height:80px;
+        margin-right:10px;
+      }
+    }
+    .pagination-wrap{
+      text-align: center;
+      margin-top: 20px;
     }
   }
 

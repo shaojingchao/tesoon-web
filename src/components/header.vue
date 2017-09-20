@@ -6,7 +6,7 @@
     </div>
   </header>
 </template>
-<script>
+<script type="text/ecmascript-6">
   import MyNav from '@/components/myNav.vue'
   export default {
     components: {

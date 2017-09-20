@@ -111,4 +111,30 @@
       }
     }
   }
+  @media screen and (max-width: 767px) {
+    .licheng-wrap{
+      padding-top: 30px;
+      padding-bottom: 40px;
+      .lc-title{
+        font-weight:700;
+        font-size:24px;
+      }
+    }
+    .time-line{
+      .tl-title{
+        font-weight:700;
+        font-size:20px;
+      }
+      .tl-year-item{
+        p{
+          font-size:14px;
+          padding:12px 0 12px 15px;
+          &:before{
+            margin-left: -15px;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
 </style>

@@ -122,4 +122,52 @@
       }
     }
   }
+
+  @media screen and (max-width:767px) {
+    .wenhua-wrap{
+      padding:30px 0 30px;
+      .title{
+        font-size:24px;
+        font-weight:700;
+        padding-bottom:30px;
+      }
+      .wh-content{
+        .wh-card{
+          flex-direction: column;
+          li{
+            width:auto;
+            height:auto;
+            padding:0 10px 10px;
+            margin-bottom: 15px;
+            h3{
+              font-size:16px;
+              font-weight:700;
+              line-height:40px;
+              border-top:4px solid @primary;
+            }
+            p{
+              font-size:14px;
+            }
+          }
+        }
+      }
+      .huodong-content{
+        .hd-title{
+          font-weight:700;
+          font-size:20px;
+        }
+      }
+      .hd-list-item{
+        margin:50px 0;
+        h3{
+          font-weight:700;
+          font-size:18px;
+          margin-top:10px;
+        }
+        p{
+          font-size:14px;
+        }
+      }
+    }
+  }
 </style>

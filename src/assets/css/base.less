@@ -2,23 +2,9 @@
 //@import (inline) "units/_iconfont.less";
 @import "units/_reset.less";
 @import "units/_layout.less";
-//@import "units/_loading.less";
 @import "units/_btn.less";
-//@import "units/_form.less";
-//@import "units/_panel.less";
-//@import "units/_tab.less";
-//@import "units/_table.less";
-//@import "units/_crumbs.less";
-//@import "units/_msg.less";
-//@import "units/_paginator.less";
-//@import "units/_radio.less";
-//@import "units/_load-more.less";
-//@import "units/_header-analy.less";
-//@import "units/_footer.less";
-//@import "units/_tooltip.less";
-//@import "units/_alertinfo.less";
-//@import "units/_messages.less";
-
+@import "units/_resp-base.less";
+@import "units/_resp-show.less";
 
 //loading
  #loading-svg{
@@ -76,6 +62,7 @@
     line-height: 1.8;
     text-indent: 2em;
     .sp-img{
+      text-indent: 0;
       text-align: center;
       padding:30px 0;
       img{
@@ -91,6 +78,50 @@
     }
     p{
      margin:0.6em 0;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .page-nav-tab{
+    white-space: nowrap;
+    overflow:scroll;
+    a{
+      height:46px;
+      line-height:46px;
+      margin-right:4px;
+      padding:0 2px;
+      font-size:15px;
+    }
+    .router-link-exact-active{
+      border-bottom:2px solid @primary;
+    }
+  }
+  .service-page{
+    padding-bottom: 80px;
+    .sp-content{
+      font-size:14px;
+      line-height: 1.4;
+      text-indent: 2em;
+      .sp-img{
+        text-indent: 0;
+        text-align: center;
+        padding:30px 0;
+        img{
+          max-width:100%;
+        }
+      }
+      h3{
+        font-size:16px;
+        font-weight:700;
+        line-height:1.2;
+        text-indent:0;
+        padding-left: 1em;
+        margin:3em 0 1em;
+      }
+      p{
+        margin:0.4em 0;
+      }
     }
   }
 }
@@ -117,6 +148,13 @@
 }
 .fadeIn-loading-leave-active {
   animation: fadeIn-loading .15s reverse linear;
+}
+
+.fadeInDown-enter-active {
+  animation: fadeInDown .15s linear;
+}
+.fadeInDown-leave-active {
+  animation: fadeInDown .15s reverse linear;
 }
 
 @keyframes fadeIn-down {

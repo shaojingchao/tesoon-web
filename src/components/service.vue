@@ -2,8 +2,10 @@
   <div>
     <MyHeader/>
     <div class="service-wrap">
+      <div class="about-banner hide-xs">
+        <div class="page-crumbs content">首页 > 集团业务</div>
+      </div>
       <div class="service-body content">
-        <div class="page-crumbs">首页 > 集团业务</div>
         <div class="page-nav-tab">
           <router-link to="/service/jiaoyu">教育出版</router-link>
           <router-link to="/service/zonghe">综合出版</router-link>

@@ -4,23 +4,23 @@
     <div class="platform-data">
       <div class="content clearfix" >
         <div class="data-item wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.1s">
-          <div class="num">19</div>
+          <div class="num hide-xs">19</div>
           <p>天星砥砺前行19年</p>
         </div>
         <div class="data-item wow fadeInUp" data-wow-duration="0.6s" data-wow-delay="0.3s">
-          <div class="num">5000</div>
+          <div class="num hide-xs">5000</div>
           <p>5000余位特优级教师加盟</p>
         </div>
         <div class="data-item wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="0.5s">
-          <div class="num">7</div>
+          <div class="num hide-xs">7</div>
           <p>开创7大教辅品牌</p>
         </div>
         <div class="data-item wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.7s">
-          <div class="num">26</div>
+          <div class="num hide-xs">26</div>
           <p>推出26大畅销系列</p>
         </div>
         <div class="data-item wow fadeInUp" data-wow-duration="0.9s" data-wow-delay="0.9s">
-          <div class="num">2000</div>
+          <div class="num hide-xs">2000</div>
           <p>单品研发2000余册</p>
         </div>
       </div>
@@ -38,7 +38,9 @@
             key="item.id"
             :to="{path:'/dynamic/all/'+item.id}">
             <a class="ds-list-item" :title="item.title">
-              <div><img v-bind:src="item.pic"></div>
+              <div class="ds-list-item-img">
+                <img v-bind:src="item.pic">
+              </div>
               <h3 :title="item.title">{{item.title}}</h3>
               <div class="text-muted f16 clearfix">
                 <span class="fl">{{item.time}}</span>
@@ -49,7 +51,7 @@
         </ul>
         <div class="tc text-muted f16" v-else>拼命加载中</div>
       </div>
-      <div class="tr content f16 pr30" v-if="dynamicList.length>0">
+      <div class="tr content f16 pr30 mt20" v-if="dynamicList.length>0">
         <router-link class="text-muted" to="/dynamic">查看更多 ></router-link>
       </div>
     </div>
@@ -60,12 +62,12 @@
       <div class="content">
         <p class="section-text">
           天星教育以独到、敏锐的市场眼光，独辟蹊径地首创MOOK教辅理念，开中国教辅杂志化先河，实现了图书优势和杂志优势的完美结合，出版的《金考卷》《试题调研》等系列图书，将全国示范名校优质备考资源传递给万千学子，一时畅销大江南北。</p>
-        <div class="section-img mt20 pt30 pb30 mb30">
+        <div class="section-img">
           <img src="../assets/img/index/jiaoyu_pic.png">
         </div>
         <div class="sub-img tc">
           <div class="clearfix dib">
-            <img class="fr" src="../assets/img/index/jiaoyu_icon.png">
+            <img src="../assets/img/index/jiaoyu_icon.png">
           </div>
         </div>
         <div class="tc mt10">
@@ -80,12 +82,12 @@
       <div class="content">
         <p class="section-text">
           天星教育打造的疯狂系列期刊群已成为青少年阅读拓展领军品牌，秉承激情专注之精神，怀抱出类拔萃之信念，长期执着于读写研究。彰显时代特征，吻合中、高考精神，全方位提升青少年人文素养及读写能力。使青少年在阅读中生发智慧，奠定内涵，在潜移默化中完善人格，提升能力，走向成功！</p>
-        <div class="section-img mt20 pt30 pb30 mb30">
+        <div class="section-img">
           <img src="../assets/img/index/zonghe_pic.png">
         </div>
         <div class="sub-img tc">
           <div class="clearfix dib">
-            <img class="fr" src="../assets/img/index/zonghe_icon.png">
+            <img src="../assets/img/index/zonghe_icon.png">
           </div>
         </div>
         <div class="tc mt10">
@@ -102,13 +104,13 @@
           天星教育以独到、敏锐的市场眼光，独辟蹊径地首创MOOK教辅理念，开中国教辅杂志化先河，实现了图书优势和杂志优势的完美结合，出版的《金考卷》《试题调研》等系列图书，将全国示范名校优质备考资源传递给万千学子，一时畅销大江南北。</p>
         <div class="sub-img tc">
           <div class="clearfix dib">
-            <img class="fr" src="../assets/img/index/shuzi_icon.png">
+            <img src="../assets/img/index/shuzi_icon.png">
           </div>
         </div>
         <div class="tc mt30">
           <router-link to="/service/shuzi" class="f16 text-muted">详细了解 ></router-link>
         </div>
-        <div class="section-img pt30 mt10">
+        <div class="section-img pt30 mt10" style="margin-bottom:0;padding-bottom:0;">
           <img src="../assets/img/index/shuzi_pic.png">
         </div>
       </div>
@@ -119,7 +121,7 @@
       <div class="content slide-scroll-wrap">
         <a class="slide-btn fl" :class="{disabled:pjCurrentIndex===0}" @click="scrollPingJiaLeft"><</a>
         <div class="slide-scroll-content">
-          <ul :style="{width:pingJiaList.length*1000+'px',left:-pjCurrentIndex*1000+'px'}">
+          <ul :style="{width:pingJiaList.length*computedWidth+'px',left:-pjCurrentIndex*computedWidth+'px'}">
             <li class="slide-item" v-for="item in pingJiaList">
               <img class="u-pic" :src="item.photo">
               <div class="text">
@@ -176,6 +178,30 @@
         pjCurrentIndex: 0
       }
     },
+    computed: {
+      isMobile () {
+        return document.body.clientWidth <= 767
+      },
+      mobileWidth () {
+        return document.body.clientWidth
+      },
+      computedWidth () {
+        return this.isMobile ? this.mobileWidth * 0.78 : 1000
+      }
+    },
+    components: {
+      MyHeader,
+      MyFooter
+    },
+    mounted () {
+      this.initWOW('wow').init()
+      this.$http.get('/api/new').then(res => {
+        this.dynamicList = res.data.data
+        this.$nextTick(() => {
+          this.initWOW('news-wow').init()
+        })
+      })
+    },
     metaInfo () {
       return {
         title: '天星教育 - 首页',
@@ -185,28 +211,15 @@
         }]
       }
     },
-    components: {
-      MyHeader,
-      MyFooter
-    },
-    created () {
-      this.initWOW('wow')
-      this.$http.get('/api/new').then(res => {
-        this.dynamicList = res.data.data
-        this.$nextTick(() => {
-          this.initWOW('news-wow')
-        })
-      })
-    },
     methods: {
       initWOW (cls) {
-        new WOW.WOW({
+        return new WOW.WOW({
           boxClass: cls,
           animateClass: 'animated',
           offset: 0,
-          mobile: false,
+          mobile: true,
           live: true
-        }).init()
+        })
       },
       scrollPingJia (i) {
         if (i < 0 || i > this.pingJiaList.length - 1) {
@@ -275,6 +288,18 @@
       text-align: center;
       padding-bottom: 30px;
     }
+    .section-img{
+      margin-top: 20px;
+      margin-bottom: 30px;
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+    .section-img,.sub-img{
+      text-align: center;
+      img {
+        max-width:90%;
+      }
+    }
   }
 
   .index-section-gray {
@@ -311,6 +336,23 @@
       box-sizing: border-box;
       padding: 20px 20px 0;
     }
+    .ds-list-item-img{
+      position: relative;
+      img{
+        display: block;
+      }
+      &:after{
+        content:'';
+        display: block;
+        background-color: rgba(0,51,202,0.12);
+        position: absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        z-index:10;
+      }
+    }
   }
 
   /*用户评价*/
@@ -319,11 +361,11 @@
     color: #fff;
   }
 
+  @height: 140px;
   /*评价内容-滑动效果*/
   .slide-scroll-wrap {
     padding: 130px 0;
     overflow: hidden;
-    @height: 140px;
     .slide-btn {
       font-size: 40px;
       font-weight: 100;
@@ -403,6 +445,129 @@
         box-sizing: border-box;
         padding: 20px 50px;
         background: url(../assets/img/index/map_tips.png) 0 0 no-repeat;
+      }
+    }
+  }
+  @media screen and (max-width:767px) {
+
+    /*平台数据*/
+    .platform-data{
+      text-align: center;
+      .data-item{
+        float: none;
+        width:147px;
+        font-size:13px;
+        line-height:2.1em;
+        display: inline-block;
+        &:not(:first-child):after{
+          display: none;
+        }
+      }
+    }
+    .index-section{
+      padding:30px 0;
+      .section-img{
+        margin-top: 0;
+        margin-bottom: 10px;
+        padding-top: 0;
+        padding-bottom: 10px;
+      }
+      .section-img,.sub-img{
+        text-align: center;
+        img {
+          max-width:90%;
+        }
+      }
+    }
+    .section-title{
+      font-size: 36px;
+      padding: 0 0 20px;
+    }
+
+    /*新闻动态*/
+    .dynamic-show {
+      li {
+        display: block;
+        width: auto;
+        height: auto;
+        margin: 10px 0 0;
+        transition: none;
+        &:hover {
+          box-shadow:none;
+        }
+        h3 {
+          margin-top: 8px;
+          height: auto;
+        }
+      }
+      .ds-list-item {
+        height: auto;
+        padding: 10px 10px 6px;
+      }
+    }
+
+    @height: 180px;
+    /*评价内容-滑动效果*/
+    .slide-scroll-wrap {
+      padding: 30px 0;
+      .slide-btn {
+        display: block;
+        font-size: 30px;
+        height: @height;
+        width: 11vw;
+        line-height: @height;
+      }
+      .slide-scroll-content {
+        width: 78vw;
+        height: @height;
+        .slide-item {
+          width: 78vw;
+          padding: 0 1vw;
+          .u-pic {
+            width: 12vw;
+            height: 12vw;
+            margin-top: 20px;
+          }
+          .text {
+            width: 60vw;
+            height: @height;
+            line-height:1.5;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+
+    /*地址*/
+    .address-wrap {
+      font-weight: 400;
+      height: 400px;
+      background-size: 1420px;
+      background-position: -690px 0;
+      .address {
+        padding-top: 10px;
+        position: relative;
+        .map-tips {
+          position: absolute;
+          top:162px;
+          left:50%;
+          margin-left:-120px;
+          font-size:12px;
+          margin-top:0;
+          width: 280px;
+          height: 100px;
+          box-sizing: border-box;
+          padding: 10px 20px 10px 30px;
+          background: url(../assets/img/index/map_tips.png) 0 0 no-repeat;
+          background-size:contain;
+          p{
+            font-size:14px;
+            margin:0 0 4px;
+            &:nth-child(2){
+              font-size:12px;
+            }
+          }
+        }
       }
     }
   }

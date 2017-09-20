@@ -1,25 +1,36 @@
 <template>
-  <ul class="nav">
-    <router-link tag="li" to="/" v-bind:title="$route.path" v-show="$route.path !== '/'"><a>首页</a></router-link>
-    <router-link tag="li" to="/dynamic" active-class="current"><a>天星动态</a></router-link>
-    <router-link tag="li" to="/service" active-class="current"><a>集团业务</a></router-link>
-    <router-link tag="li" to="/about" active-class="current"><a>了解天星</a></router-link>
-    <li class="web-ewm-item cur-def" @mouseenter="mouseoverEwm" @mouseleave="mouseoutEwm">
-      <a>手机访问</a>
-      <transition name="fadeIn-up">
-        <div class="web-ewm-content" v-if="isShowEwm">
-          <img src="../assets/img/ewm.png">
-          <p>请使用微信扫描二维码</p>
-        </div>
-      </transition>
-    </li>
-  </ul>
+  <div class="nav-menu" :class="{'nav-open':isShowNavMenu}">
+    <span class="menu-toggle show-xs" @click="showNavMenu"><b></b></span>
+    <transition name="fadeInDown">
+      <ul class="nav" v-show="isShowNavMenu || !isMobile">
+        <router-link tag="li" to="/" v-bind:title="$route.path" v-if="$route.path !== '/'"><a>首页</a></router-link>
+        <router-link tag="li" to="/dynamic" active-class="current"><a>天星动态</a></router-link>
+        <router-link tag="li" to="/service" active-class="current"><a>集团业务</a></router-link>
+        <router-link tag="li" to="/about" active-class="current"><a>了解天星</a></router-link>
+        <li class="web-ewm-item cur-def hide-xs" @mouseenter="mouseoverEwm" @mouseleave="mouseoutEwm">
+          <a>手机访问</a>
+          <transition name="fadeIn-up">
+            <div class="web-ewm-content" v-if="isShowEwm">
+              <img src="../assets/img/ewm.png">
+              <p>请使用微信扫描二维码</p>
+            </div>
+          </transition>
+        </li>
+      </ul>
+    </transition>
+  </div>
 </template>
 <script type="text/ecmascript-6">
   export default {
     data () {
       return {
-        isShowEwm: false
+        isShowEwm: false,
+        isShowNavMenu: false
+      }
+    },
+    computed: {
+      isMobile () {
+        return document.body.clientWidth <= 767
       }
     },
     methods: {
@@ -28,6 +39,9 @@
       },
       mouseoutEwm () {
         this.isShowEwm = false
+      },
+      showNavMenu () {
+        this.isShowNavMenu = !this.isShowNavMenu
       }
     }
   }
@@ -42,10 +56,9 @@
       width: 146px;
       height: 80px;
       background: url(../assets/img/logo-2.png) 50% 50% no-repeat;
-      background-size: 100%;
+      background-size: 100% !important;
     }
     .nav {
-      float: right;
       li {
         box-sizing: border-box;
         font-size: 16px;
@@ -74,6 +87,27 @@
             border-bottom: none;
           }
         }
+      }
+    }
+  }
+  .nav-menu {
+    float: right;
+    .menu-toggle{
+      position: absolute;
+      right:14px;
+      top:15px;
+      b,&:after,&:before{
+        display: block;
+        width:22px;
+        height:2px;
+        background-color: rgba(255,255,255,.3);
+        border-radius: 2px;
+      }
+      &:after,&:before{
+        content:'';
+      }
+      b,&:after{
+        margin-top:6px;
       }
     }
   }
@@ -121,7 +155,7 @@
 
   .web-ewm-content {
     position: absolute;
-    box-sizing:border-box;
+    box-sizing: border-box;
     top: 80px;
     left: 50%;
     width: 180px;
@@ -157,6 +191,120 @@
       text-align: center;
       margin-top: 5px;
       line-height: 1.4;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+
+    //header
+    .header {
+      .logo {
+        width: 100px;
+        height: 48px;
+        background-size:contain;
+      }
+      .nav-menu {
+        .menu-toggle{
+          b,&:after,&:before{
+            background-color: rgba(255,255,255,.3);
+          }
+        }
+      }
+      .nav{
+        float:none;
+        position: absolute;
+        top:48px;
+        left:0;
+        right:0;
+        padding:10px 0;
+        background-color: #103356;
+        border-top:1px solid rgba(255,255,255,0.05);
+        box-shadow:0 4px 10px rgba(0,0,0,.1);
+        li{
+          display: block;
+          height:50px;
+          line-height:50px;
+          padding:0;
+          margin:0;
+          border-top:1px solid rgba(255,255,255,.02);
+          a{
+            padding:0 20px;
+          }
+          &.current, &:hover {
+            border-bottom: none !important;
+            background-color: rgba(255,255,255,.1);
+          }
+          &:not(:visited):first-child {
+            border-top:none;
+          }
+        }
+      }
+    }
+
+    .nav-menu {
+      float: right;
+      .menu-toggle{
+        position: absolute;
+        right:14px;
+        top:15px;
+        b,&:after,&:before{
+          display: block;
+          width:22px;
+          height:2px;
+          background-color: rgba(255,255,255,.3);
+          border-radius: 2px;
+        }
+        &:after,&:before{
+          content:'';
+          transition: transform 0.3s;
+        }
+        &:before{
+          transform-origin: 0 4px;
+        }
+        &:after{
+          transform-origin: 12px -3px;
+        }
+        b{
+          transform-origin: 0 0;
+          transition: transform 0.3s,opacity 0.3s;
+        }
+        b,&:after{
+          margin-top:6px;
+        }
+      }
+      &.nav-open{
+        .menu-toggle{
+          &:after{
+            transform: rotate(135deg);
+          }
+          &:before{
+            transform: rotate(45deg);
+          }
+
+          b{
+            transform: rotate(90deg);
+            opacity:0;
+          }
+        }
+      }
+    }
+
+    .page-header {
+      border-bottom: 1px solid #e8ecef;
+      .nav-menu {
+        .menu-toggle{
+          b,&:after,&:before{
+            background-color: #484aa2;
+          }
+        }
+      }
+      .nav {
+        background-color: #fff;
+        border-top:1px solid #eee;
+        li{
+          border-top:1px solid #f7f7f7;
+        }
+      }
     }
   }
 </style>

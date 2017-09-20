@@ -61,4 +61,23 @@
       }
     }
   }
+
+  @media screen and (max-width: 767px) {
+    .jianjie-wrap{
+      padding:25px 0 30px;
+      .title{
+        padding-bottom: 30px;
+        font-weight: 700;
+        font-size:24px;
+      }
+      .jj-content{
+        font-size:14px;
+        line-height:1.4;
+        h4{
+          font-weight:700;
+          font-size:16px;
+        }
+      }
+    }
+  }
 </style>

@@ -14,76 +14,7 @@
     </div>
   </div>
 </template>
-<style lang="less">
-  .zizhi-wrap{
-    padding-top: 70px;
-    padding-bottom: 80px;
-    .title{
-      font-size:42px;
-      font-weight:400;
-      margin-bottom: 60px;
-    }
-    .zz-pic-list{
-      .list-item{
-        margin:28px;
-        position: relative;
-        float: left;
-        .pic-content{
-          height:291px;
-          position: relative;
-          &:after{
-            content:'';
-            display: block;
-            width:200px;
-            height:100%;
-            position: absolute;
-            left:100%;
-            top:0;
-            background: url(../assets/img/page/zizhi_pic_bg.png) 0 40px no-repeat;
-          }
-          .pic-box-bg{
-            height:100%;
-            width:100%;
-            position: absolute;
-            top:0;
-            left:0;
-          }
-          .pic-box{
-            position: absolute;
-            top:38px;
-            height:222px;
-            width:100%;
-          }
-          .pic-box-a4{
-            background: url(../assets/img/page/zizhi_pic_box_02.png) 0 0 no-repeat;
-          }
-          .pic-box-a3{
-            background: url(../assets/img/page/zizhi_pic_box_01.png) 0 0 no-repeat;
-          }
-          &.pic-a4{
-            width:164px;
-          }
-          &.pic-a3{
-            width:291px;
-          }
-          img{
-            position: relative;
-            width:100%;
-            z-index:0;
-          }
-          p{
-            position: absolute;
-            top:275px;
-            width:100%;
-            text-align: center;
-            font-size:16px;
-          }
-        }
 
-      }
-    }
-  }
-</style>
 <script type="text/ecmascript-6">
   export default {
     data () {
@@ -184,3 +115,102 @@
     }
   }
 </script>
+
+<style lang="less">
+  .zizhi-wrap{
+    padding-top: 70px;
+    padding-bottom: 80px;
+    .title{
+      font-size:42px;
+      font-weight:400;
+      margin-bottom: 60px;
+    }
+    .zz-pic-list{
+      .list-item{
+        margin:28px;
+        position: relative;
+        float: left;
+        .pic-content{
+          height:291px;
+          position: relative;
+          &:after{
+            content:'';
+            display: block;
+            width:200px;
+            height:100%;
+            position: absolute;
+            left:100%;
+            top:0;
+            background: url(../assets/img/page/zizhi_pic_bg.png) 0 40px no-repeat;
+          }
+          .pic-box-bg{
+            height:100%;
+            width:100%;
+            position: absolute;
+            top:0;
+            left:0;
+          }
+          .pic-box{
+            position: absolute;
+            top:38px;
+            height:222px;
+            width:100%;
+          }
+          .pic-box-a4{
+            background: url(../assets/img/page/zizhi_pic_box_02.png) 0 0 no-repeat;
+          }
+          .pic-box-a3{
+            background: url(../assets/img/page/zizhi_pic_box_01.png) 0 0 no-repeat;
+          }
+          &.pic-a4{
+            width:164px;
+          }
+          &.pic-a3{
+            width:291px;
+          }
+          img{
+            position: relative;
+            width:100%;
+            z-index:0;
+          }
+          p{
+            position: absolute;
+            top:275px;
+            width:100%;
+            text-align: center;
+            font-size:16px;
+          }
+        }
+
+      }
+    }
+  }
+
+  @media screen and (max-width:767px) {
+    .zizhi-wrap{
+      padding-top: 30px;
+      padding-bottom: 30px;
+      .title{
+        font-size:24px;
+        font-weight:700;
+        margin-bottom: 30px;
+      }
+      .zz-pic-list{
+        text-align: center;
+        .list-item{
+          margin: 20px 3px;
+          float: none;
+          display: inline-block;
+          .pic-content{
+            &:after{
+              display: none;
+            }
+            p{
+              font-size:14px;
+            }
+          }
+        }
+      }
+    }
+  }
+</style>

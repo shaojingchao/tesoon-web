@@ -16,37 +16,6 @@
 </template>
 <script type="text/ecmascript-6">
   export default {
-    metaInfo () {
-      return {
-        title: '天星教育 - 联系我们'
-      }
-    }
-  }
-</script>
-<style lang="less">
-  .lianxi-wrap{
-    padding-bottom: 80px;
-    .title{
-      font-size:42px;
-      padding:60px 0;
-    }
-    .address-list{
-      .list-item{
-        border-top:1px solid #dddddd;
-        padding:40px 0;
-      }
-      .text{
-        height:320px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width:500px;
-      }
-    }
-  }
-</style>
-<script>
-  export default {
     data () {
       return {
         addressList: [
@@ -82,6 +51,78 @@
           }
         ]
       }
+    },
+    metaInfo () {
+      return {
+        title: '天星教育 - 联系我们'
+      }
     }
   }
 </script>
+<style lang="less">
+  @import '../assets/css/_mixins-wln/_wln-variables.less';
+  .lianxi-wrap{
+    padding-bottom: 80px;
+    .title{
+      font-size:42px;
+      padding:60px 0;
+    }
+    .address-list{
+      .list-item{
+        border-top:1px solid #dddddd;
+        padding:40px 0;
+      }
+      .text{
+        height:320px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width:500px;
+      }
+    }
+  }
+  @media screen and (max-width:767px) {
+    .lianxi-wrap{
+      padding-bottom: 40px;
+      .title{
+        font-size:24px;
+        font-weight:700;
+        padding:30px 0;
+      }
+      .address-list{
+        .list-item{
+          border-top:none;
+          border-bottom:1px solid #eee;
+          padding:20px 0 20px 10px;
+          img{
+            display: none;
+          }
+          &:before{
+            content:'';
+            display: block;
+            float: left;
+            height:16px;
+            width:3px;
+            margin-left: -10px;
+            margin-top: 3px;
+            background-color: @primary;
+          }
+        }
+        .text{
+          display: block;
+          float: none;
+          height:auto;
+          width:auto;
+          h3{
+            font-size:16px;
+            font-weight:700;
+          }
+          p{
+            font-size:14px;
+            margin-top:10px;
+          }
+        }
+      }
+    }
+  }
+</style>

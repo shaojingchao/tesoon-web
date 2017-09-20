@@ -80,9 +80,33 @@
       }
     }
   }
+  @media screen and (max-width: 767px) {
+  @height:500px;
+    .banner-wrap{
+      height:@height;
+    }
+    .wln-slider{
+      min-width:0;
+      height:@height;
+      .bd{
+        ul{
+          height: @height;
+          li{
+            height:@height;
+            background-position:center center!important;
+            background-size:cover !important;
+          }
+        }
+      }
+      .hd{
+        width:100%;
+        margin-left:-50vw;
+      }
+    }
+  }
 </style>
 
-<script>
+<script type="text/javascript">
   export default{
     props: {
       time: {
