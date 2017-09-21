@@ -40,12 +40,8 @@ export default {
     if (typeof selector === 'object') {
       return selector
     }
-    const doc = typeof context === 'string'
-      ? typeof context === 'object'
-        ? context
-        : document
-      : this.getDOM(context)
-    if (selector.indexOf('#') === 0) {
+    const doc = typeof context === 'object' ? context : document
+    if (selector.indexOf('#') === 0 && selector.indexOf(' ') === -1) {
       return [doc.getElementById(selector.slice(1))]
     } else if (selector.indexOf('.') === 0 && doc.getElementsByClassName) {
       return doc.getElementsByClassName(selector)

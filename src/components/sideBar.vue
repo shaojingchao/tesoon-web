@@ -24,7 +24,9 @@
 <script type="text/ecmascript-6">
   import Tween from '../util/tween.js'
   require('../util/requestAnimationFrame.js')
-  import Event from '../util/event'
+  import MyEvent from '../util/event'
+
+  window.MyEvent = MyEvent
   export default {
     data () {
       return {
@@ -70,7 +72,7 @@
         this.animateStep(start, end, this.duration)
       },
       addScrollEvent () {
-        Event.addEvent(window, 'scroll', () => {
+        MyEvent.addEvent(window, 'scroll', () => {
           this.scrollTop = this.getScrollTop()
         })
       }
