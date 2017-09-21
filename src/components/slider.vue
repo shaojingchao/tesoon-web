@@ -34,7 +34,7 @@
     background:#4889e5;
   }
   .wln-slider{
-    min-width:1200px;
+    //min-width:1200px;
     position:relative;
     height:@height;
     overflow:hidden;

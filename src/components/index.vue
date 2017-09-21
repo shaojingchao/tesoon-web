@@ -153,7 +153,7 @@
 <script type="text/ecmascript-6">
   import MyHeader from '@/components/indexHeader.vue'
   import MyFooter from '@/components/footer.vue'
-  import WOW from '@/bower_components/wow/dist/wow.min'
+  // import WOW from '@/bower_components/wow/dist/wow.min'
   export default{
     data () {
       return {
@@ -194,11 +194,11 @@
       MyFooter
     },
     mounted () {
-      this.initWOW('wow').init()
+      // this.initWOW('wow').init()
       this.$http.get('/api/new').then(res => {
         this.dynamicList = res.data.data
         this.$nextTick(() => {
-          this.initWOW('news-wow').init()
+          // this.initWOW('news-wow').init()
         })
       })
     },
@@ -213,13 +213,13 @@
     },
     methods: {
       initWOW (cls) {
-        return new WOW.WOW({
-          boxClass: cls,
-          animateClass: 'animated',
-          offset: 0,
-          mobile: true,
-          live: true
-        })
+        // return new WOW.WOW({
+        //   boxClass: cls,
+        //   animateClass: 'animated',
+        //   offset: 0,
+        //   mobile: true,
+        //   live: true
+        // })
       },
       scrollPingJia (i) {
         if (i < 0 || i > this.pingJiaList.length - 1) {
