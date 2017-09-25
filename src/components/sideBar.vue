@@ -22,11 +22,10 @@
 </style>
 
 <script type="text/ecmascript-6">
-  import Tween from '../util/tween.js'
-  require('../util/requestAnimationFrame.js')
+  import Tween from '../util/tween'
+  require('../util/animFrame')
   import MyEvent from '../util/event'
-
-  window.MyEvent = MyEvent
+  
   export default {
     data () {
       return {

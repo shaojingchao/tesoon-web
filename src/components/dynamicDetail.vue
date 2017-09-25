@@ -18,7 +18,7 @@
 
   @media screen and (max-width:767px) {
     .dynamic-detail{
-      font-size:14px;
+      /*font-size:14px;*/
       line-height: 1.5;
       padding-top: 30px;
       padding-bottom: 30px;
