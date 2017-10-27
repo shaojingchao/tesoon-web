@@ -2,11 +2,11 @@
   <div class="dynamic-detail">
     <h2 class="fw4 tc">{{content.title}}</h2>
     <p class="text-muted mt5 f14 tc">
-      <span class="mr15">{{content.time}}</span>
-      <span class="mr15">{{content.author}}</span>
-      <span>{{content.cate}}</span>
+      <span class="mr15">{{content.add_time}}</span>
+      <span class="mr15">{{content.add_user}}</span>
+      <span>{{content.dept}}</span>
     </p>
-    <div class="pt30">{{content.context}}</div>
+    <div class="pt30" v-html="content.content"></div>
   </div>
 </template>
 <style lang="less">
@@ -14,6 +14,9 @@
     font-size: 16px;
     line-height: 1.8;
     padding-bottom: 80px;
+    img{
+      max-width:100%;
+    }
   }
 
   @media screen and (max-width:767px) {
@@ -32,6 +35,7 @@
   }
 </style>
 <script type="text/ecmascript-6">
+  import CF from '@/api/'
   export default{
     data () {
       return {
@@ -46,8 +50,10 @@
     },
     props: ['param'],
     created () {
-      this.$http('/api/news/' + this.param.params.id).then(res => {
-        this.content = res.data.data
+      console.log(this.param)
+      this.$http(CF.getDynamicsInfo + '?article_id=' + this.param.params.id).then(res => {
+        console.log(res.data)
+        this.content = res.data
       })
     }
   }

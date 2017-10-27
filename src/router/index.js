@@ -44,13 +44,13 @@ const router = new Router({
     },
     {
       path: '/dynamic',
-      redirect: '/dynamic/all',
+      redirect: '/dynamic/0',
       meta: {
         title: '天星教育官网 - 天星动态'
       }
     },
     {
-      path: '/dynamic/:cate',
+      path: '/dynamic/:tid',
       name: 'Dynamic',
       component: Dynamic,
       meta: {

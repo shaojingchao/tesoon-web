@@ -12,11 +12,11 @@
             <h3 class="rn-item-title">文章分类</h3>
             <ul class="nav-list">
               <router-link
-                :class="{current:currentNav === item.cate}"
+                :class="{current:currentNav === item.tid}"
                 v-for="(item,index) in navList"
-                key="{{item.cate}}"
+                key="{{item.id}}"
                 tag="li"
-                :to="{path:'/dynamic/'+item.cate}"><a class="db">{{item.name}}</a></router-link>
+                :to="{path:'/dynamic/'+item.tid}"><a class="db">{{item.name}}</a></router-link>
             </ul>
           </div>
           <div class="rn-item pt20 hide-xs">
@@ -35,8 +35,14 @@
         </div>
 
         <div class="page-body" v-if="isList && newList.length>0">
-          <NewList :newList="newList" :currentNav="currentNav"/>
-          <Pager class="tr pb30" @goToPage="goToPage"/>
+          <NewList :newList="newList"/>
+          <Pager class="tr pb30"
+                 @goToPage="goToPage"
+                 :pageNum="pages.pageNum"
+                 :currentPage="pages.currentPage"
+                 :totalCount="pages.totalCount"
+                 v-if="pages.pageNum > 1" />
+          <div class="tc mt20 text-muted" v-else>加载完毕</div>
         </div>
       </div>
     </div>
@@ -48,30 +54,40 @@
   import MyFooter from '@/components/footer.vue'
   import NewList from '@/components/newList.vue'
   import Pager from '@/components/pager.vue'
+  import CF from '@/api/'
   export default {
     data () {
       return {
         navList: [
           {
+            tid: '0',
             cate: 'all',
             name: '全部新闻'
           },
           {
+            tid: '9',
             cate: 'jt',
             name: '集团新闻'
           },
           {
+            tid: '10',
             cate: 'hy',
             name: '行业新闻'
           },
           {
+            tid: '11',
             cate: 'yg',
             name: '员工活动'
           }
         ],
-        navItemTag: ['all', 'jt', 'hy', 'yg'],
+        navItemTag: ['0', '9', '10', '11'],
         currentNav: '',
-        newList: []
+        newList: [],
+        pages: {
+          totalCount: 0,
+          pageNum: 0,
+          currentPage: 1
+        }
       }
     },
     metaInfo () {
@@ -88,42 +104,59 @@
     computed: {
       isList () { // 是否是列表
         let params = this.$route.params
-        let cate = params.cate
+        let tid = params.tid
         let id = params.id
-        return this.navItemTag.indexOf(cate) !== -1 && !id
+        return this.navItemTag.indexOf(tid) !== -1 && !id
       }
     },
     created () {
-      this.getNewList('all', (res) => {
-        this.newList = this.newList.concat(res.data.data)
-        if (this.$route.params.cate) {
-          this.currentNav = this.$route.params.cate
-        }
-      })
+      this.routeFunc(this.$route)
     },
-
     // 导航路由钩子
     beforeRouteUpdate (to, from, next) {
-      this.getNewList('', (res) => {
-        this.newList = res.data.data
-        if (to.params.cate) {
-          this.currentNav = to.params.cate
-        }
-      })
+      this.routeFunc(to)
       next()
     },
     methods: {
-      goToPage (index) {
-        this.getNewList(index, (res) => {
+      routeFunc (to) {
+        console.log('beforeRouteUpdate')
+        let params = {
+          tid: 0,
+          page: 1
+        }
+        if (to.params.tid) {
+          params.tid = to.params.tid
+          this.currentNav = to.params.tid
+        }
+        if (to.query.page) {
+          params.page = to.query.page
+        }
+        this.getNewList(params, (res) => {
+          console.log(res.data.data)
           this.newList = res.data.data
+          console.log(res.data.pages)
+          this.pages.pageNum = parseInt(res.data.pages.pageNum)
+          this.pages.totalCount = parseInt(res.data.pages.totalCount)
+          this.pages.currentPage = parseInt(params.page)
         })
+      },
+      goToPage (index) {
+        console.log(index)
+        this.$router.push({query: {page: index}})
+        // this.$route.push({params: {page: index}})
+        // this.getNewList({
+        //   tid: this.currentNav,
+        //   page: index
+        // }, (res) => {
+        //   this.newList = res.data.data
+        // })
       },
 
       // 获取列表数据
-      getNewList (tab, cb) {
-        let cate = tab ? '?id=' + tab : ''
+      getNewList (p, cb) {
+        let _paramStr = '?tid=' + p.tid + '&page=' + p.page
         this.$showLoading()
-        this.$http.get('/api/data' + cate).then((res, rev) => {
+        this.$http.get(CF.getDynamicsList + _paramStr).then((res, rev) => {
           cb && cb(res)
           this.$hideLoading()
         })
@@ -225,6 +258,7 @@
       width:180px;
       height:120px;
       margin-right:20px;
+      overflow: hidden;
       img{
         display: block;
         max-width:100%;

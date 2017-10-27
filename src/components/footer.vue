@@ -6,10 +6,10 @@
           <div class="fn-item">
             <div class="item-tit">天星动态</div>
             <ul>
-              <li><router-link to="/dynamic/all">全部新闻</router-link></li>
-              <li><router-link to="/dynamic/jt">集团新闻</router-link></li>
-              <li><router-link to="/dynamic/hy">行业新闻</router-link></li>
-              <li><router-link to="/dynamic/yg">员工新闻</router-link></li>
+              <li><router-link to="/dynamic/0">全部新闻</router-link></li>
+              <li><router-link to="/dynamic/9">集团新闻</router-link></li>
+              <li><router-link to="/dynamic/10">行业新闻</router-link></li>
+              <li><router-link to="/dynamic/11">员工新闻</router-link></li>
             </ul>
           </div>
           <div class="fn-item">

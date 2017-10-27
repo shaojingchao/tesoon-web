@@ -36,23 +36,23 @@
             tag="li"
             v-for='(item,index) in dynamicList'
             key="item.id"
-            :to="{path:'/dynamic/all/'+item.id}">
+            :to="{path:'/dynamic/0/'+item.id}">
             <a class="ds-list-item" :title="item.title">
               <div class="ds-list-item-img">
-                <img v-bind:src="item.pic">
+                <img v-bind:src="item.thumb">
               </div>
               <h3 :title="item.title">{{item.title}}</h3>
               <div class="text-muted f16 clearfix">
-                <span class="fl">{{item.time}}</span>
-                <span class="fr">{{item.cate}}</span>
+                <span class="fl">{{item.add_time}}</span>
+                <span class="fr">{{item.dept}}</span>
               </div>
             </a>
           </router-link>
         </ul>
-        <div class="tc text-muted f16" v-else>拼命加载中</div>
+        <div class="tc text-muted f16" v-else>暂无内容</div>
       </div>
       <div class="tr content f16 pr30 mt20" v-if="dynamicList.length>0">
-        <router-link class="text-muted" to="/dynamic">查看更多 ></router-link>
+        <router-link class="text-muted" to="/dynamic">查看更多 >></router-link>
       </div>
     </div>
 
@@ -154,6 +154,7 @@
   import MyHeader from '@/components/indexHeader.vue'
   import MyFooter from '@/components/footer.vue'
   import WOW from '@/bower_components/wow/dist/wow.min'
+  import CF from '@/api/'
   export default{
     data () {
       return {
@@ -195,7 +196,11 @@
     },
     mounted () {
       this.initWOW('wow').init()
-      this.$http.get('/api/new').then(res => {
+      this.$http.get(CF.getDynamicsList + '?pagesize=' + 6).then(res => {
+        console.log(res)
+        if (!res.data.data) {
+          return false
+        }
         this.dynamicList = res.data.data
         this.$nextTick(() => {
           this.initWOW('news-wow').init()
@@ -309,7 +314,7 @@
   .dynamic-show {
     li {
       width: 345px;
-      height: 245px;
+      height: 265px;
       box-sizing: border-box;
       border: 1px solid #eeeeee;
       margin: 10px;
@@ -332,12 +337,14 @@
     }
     .ds-list-item {
       display: block;
-      height: 245px;
+      height: 265px;
       box-sizing: border-box;
       padding: 20px 20px 0;
     }
     .ds-list-item-img{
       position: relative;
+      height: 155px;
+      overflow: hidden;
       img{
         display: block;
       }
