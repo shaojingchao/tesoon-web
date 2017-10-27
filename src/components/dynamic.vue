@@ -155,10 +155,10 @@
       // 获取列表数据
       getNewList (p, cb) {
         let _paramStr = '?tid=' + p.tid + '&page=' + p.page
-        this.$showLoading()
+        // this.$showLoading()
         this.$http.get(CF.getDynamicsList + _paramStr).then((res, rev) => {
           cb && cb(res)
-          this.$hideLoading()
+          // this.$hideLoading()
         })
       }
     }

@@ -3,19 +3,19 @@
     <span class="menu-toggle show-xs" @click="showNavMenu"><b></b></span>
     <transition name="fadeInDown">
       <ul class="nav" v-show="isShowNavMenu || !isMobile">
-        <router-link tag="li" to="/" v-bind:title="$route.path" v-if="$route.path !== '/'"><a>首页</a></router-link>
+        <router-link tag="li" to="/" v-if="$route.path !== '/'"><a>首页</a></router-link>
         <router-link tag="li" to="/dynamic" active-class="current"><a>天星动态</a></router-link>
         <router-link tag="li" to="/service" active-class="current"><a>集团业务</a></router-link>
         <router-link tag="li" to="/about" active-class="current"><a>了解天星</a></router-link>
-        <li class="web-ewm-item cur-def hide-xs" @mouseenter="mouseoverEwm" @mouseleave="mouseoutEwm">
-          <a>手机访问</a>
-          <transition name="fadeIn-up">
-            <div class="web-ewm-content" v-if="isShowEwm">
-              <img src="../assets/img/ewm.png">
-              <p>请使用微信扫描二维码</p>
-            </div>
-          </transition>
-        </li>
+        <!--<li class="web-ewm-item cur-def hide-xs" @mouseenter="mouseoverEwm" @mouseleave="mouseoutEwm">-->
+          <!--<a>手机访问</a>-->
+          <!--<transition name="fadeIn-up">-->
+            <!--<div class="web-ewm-content" v-if="isShowEwm">-->
+              <!--<img src="../assets/img/ewm.png">-->
+              <!--<p>请使用微信扫描二维码</p>-->
+            <!--</div>-->
+          <!--</transition>-->
+        <!--</li>-->
       </ul>
     </transition>
   </div>
