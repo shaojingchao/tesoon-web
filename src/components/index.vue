@@ -44,7 +44,7 @@
               <h3 :title="item.title">{{item.title}}</h3>
               <div class="text-muted f16 clearfix">
                 <span class="fl">{{item.add_time}}</span>
-                <span class="fr">{{item.dept}}</span>
+                <!--<span class="fr">{{item.dept}}</span>-->
               </div>
             </a>
           </router-link>
@@ -101,7 +101,7 @@
       <h1 class="section-title">数字出版</h1>
       <div class="content">
         <p class="section-text">
-          天星教育以独到、敏锐的市场眼光，独辟蹊径地首创MOOK教辅理念，开中国教辅杂志化先河，实现了图书优势和杂志优势的完美结合，出版的《金考卷》《试题调研》等系列图书，将全国示范名校优质备考资源传递给万千学子，一时畅销大江南北。</p>
+          全国首家微学习出版云平台，我们提供基于自主产权的云编辑系统，诚邀全国4000余名师协同在线开发丰富的微学习卡、微试题贴、微学杂志和微学习书， 并致力于为k-12各阶段学习者提供权威学习解决方案。</p>
         <div class="sub-img tc">
           <div class="clearfix dib">
             <img src="../assets/img/index/shuzi_icon.png">
@@ -142,7 +142,7 @@
       <div class="content address">
         <div class="map-tips">
           <p class="f20 fw6 mb15 mt5">河南天星教育传媒股份有限公司</p>
-          <p class="f16">地址：郑州市高新区翠竹街1号企业总部基地51-52栋 电话：0371-68698</p>
+          <p class="f16">地址：郑州市高新区翠竹街1号企业总部基地51-52栋 电话：0371-68698013</p>
         </div>
       </div>
     </div>

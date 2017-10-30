@@ -36,18 +36,18 @@
         <h2 class="fw4 mt30 mb30 tc hd-title">员工活动</h2>
         <div class="hd-list-item">
           <img src="../assets/img/page/yghd_01.png">
+          <h3>趣味运动会</h3>
+          <p>公司举办趣味运动会，活跃气氛，让小伙伴们工作之余可以放松身心，找回童真</p>
+        </div>
+        <div class="hd-list-item">
+          <img src="../assets/img/page/yghd_02.png">
           <h3>文娱表演</h3>
           <p>公司会在中国传统节日举办文艺演出，让同事们可以一展才华</p>
         </div>
         <div class="hd-list-item">
-          <img src="../assets/img/page/yghd_02.png">
+          <img src="../assets/img/page/yghd_03.png">
           <h3>拔河比赛</h3>
           <p>春秋季节，公司会举办拔河比赛，增强团队协作</p>
-        </div>
-        <div class="hd-list-item">
-          <img src="../assets/img/page/yghd_03.png">
-          <h3>趣味运动会</h3>
-          <p>公司举办趣味运动会，活跃气氛，让小伙伴们工作之余可以放松身心，找回童真</p>
         </div>
       </div>
     </div>
