@@ -1,7 +1,7 @@
 <!--vue slider components-->
 
 <template>
-  <div class="canvas-box" v-html="starHtml" @click="clickIt">
+  <div class="canvas-box" v-if="isShow" v-html="starHtml" @click="clickIt">
   </div>
 </template>
 
@@ -15,11 +15,9 @@
     span {
       background-color: #fff;
       background: url(../assets/img/banner/star_png.png) 0 0 no-repeat;
-      background-size:contain;
+      background-size: contain;
       position: absolute;
-      /*border-radius: 50%;*/
-      /*box-shadow: 0 0 3px 3px rgba(255, 255, 255, 0.5);*/
-      transition: top 0.2s,left 0.2s;
+      transition: top 0.2s, left 0.2s,transform 30s linear;
     }
   }
 
@@ -45,6 +43,7 @@
   export default{
     data () {
       return {
+        isShow: false,
         num: 14,
         size: 16,
         time: 3,
@@ -60,13 +59,18 @@
         return starHtml
       }
     },
+    created () {
+      if ($(window).width() > 767) {
+        this.isShow = true
+      }
+    },
     mounted () {
       this.startPlay()
     },
     methods: {
       startPlay () {
-        var _winHeight = $(window).height()
-        var _winWidth = $(window).width()
+        let _winHeight = $(window).height() * 0.65
+        let _winWidth = $(window).width()
         let stars = []
         for (let i = 0; i < this.num; i++) {
           stars.push({
