@@ -84,7 +84,6 @@
         this.stars = stars
       },
       clickIt (e) {
-        console.log(e)
         let index = parseInt(Math.random() * this.stars.length)
         $('.canvas-box').find('span').eq(index).css({
           left: e.clientX - Math.round(this.stars[index].size / 2),
